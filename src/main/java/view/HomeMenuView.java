@@ -28,6 +28,10 @@ import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
 
+/**
+ * HomeMenuView class is the class for the implementation of the starting page when the game begins.
+ * Displays the Game Title and the Start and Exit buttons.
+ */
 public class HomeMenuView extends JComponent implements MouseListener, MouseMotionListener {
 
     private static final String GREETINGS = "Welcome to:";
@@ -64,6 +68,15 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
     private boolean menuClicked;
 
 
+    /**
+     * HomeMenuView is a parameterized constructor that sets the HomeMenu elements.
+     * Sets the location of the menu.
+     * Sets the dimensions of the Start and Exit buttons
+     * Sets the font style and size of all the text in the HomeMenu.
+     * Sets the HomeMenu's border and dashes.
+     * @param owner     passing in the Object/reference variable of the GameFrameModel class. Aggregation relationship.
+     * @param area
+     */
     public HomeMenuView(GameFrameModel owner, Dimension area){
 
         this.setFocusable(true);
@@ -96,11 +109,24 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
     }
 
 
+    /**
+     * paint is an Overridden Method from the JComponent class.
+     * Method to invoke the painting of the HomeMenu page.
+     * Calls the drawMenu method.
+     * @param g
+     */
     public void paint(Graphics g){
         drawMenu((Graphics2D)g);
     }
 
 
+    /**
+     * drawMenu method is used to paint directly into the HomeMenu rectangle frame.
+     * Calls the drawContainer method to draw the Home Menu screen.
+     * Calls the drawText method to draw and render the font in the Home Menu screen.
+     * Calls the drawButton method to paint/draw the text and button layout of the START and EXIT buttons onto the frame.
+     * @param g2d
+     */
     public void drawMenu(Graphics2D g2d){
 
         drawContainer(g2d);
@@ -128,6 +154,12 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         g2d.setColor(prevColor);
     }
 
+    /**
+     * drawContainer Method is responsible for drawing the Home Menu screen.
+     * Draws and fills the Home Menu background color.
+     * Draws and fills the border and the dashes.
+     * @param g2d
+     */
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
 

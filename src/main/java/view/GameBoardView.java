@@ -28,6 +28,9 @@ import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
 
+/**
+ * GameBoardView class displays the in-game screen and handles the in-game implementation.
+ */
 public class GameBoardView extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
     private static final String CONTINUE = "Continue";
@@ -61,6 +64,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     private DebugConsoleView debugConsole;
 
 
+    /**
+     * GameBoardView is a parameterized constructor that displays the In-Game screen. Handles the in-game implementation.
+     * Deals with the Wall implementation, the Debug Console implementation.
+     * Sets the Game Timer.
+     * @param owner     reads the owner of the system the game runs on.
+     */
     public GameBoardView(JFrame owner){
         super();
 
@@ -112,7 +121,11 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     }
 
 
-
+    /**
+     * initialize is a Private Method to initialize the in-game screen.
+     * Sets the in-game screen size, enables game screen to gain focus.
+     * Listens and notifies when any keys are pressed, and if there are any mouse clicks or motions.
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -123,6 +136,14 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     }
 
 
+    /**
+     * paint is an Overridden Method from the JComponent class.
+     * The method paints/draws the game board view.
+     * Draws the message on screen.
+     * Draws the ball, player and wall on the in-game screen.
+     * Draws the Pause screen as well.
+     * @param g
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -146,6 +167,10 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         Toolkit.getDefaultToolkit().sync();
     }
 
+    /**
+     * clear is a Private Method which is responsible for clearing the in-game screen.
+     * @param g2d
+     */
     private void clear(Graphics2D g2d){
         Color tmp = g2d.getColor();
         g2d.setColor(BG_COLOR);
@@ -153,6 +178,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         g2d.setColor(tmp);
     }
 
+    /**
+     * drawBrick is a private Method that draws the brick to the in-game screen.
+     * Sets and Draws the brick color, shape and type.
+     * @param brick     passing in the Object/Reference variable of the BrickController class. Aggregation relationship.
+     * @param g2d
+     */
     private void drawBrick(BrickController brick, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -166,6 +197,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         g2d.setColor(tmp);
     }
 
+    /**
+     * drawBall is a private Method that draws the ball components to the in-game screen.
+     * Draws the ball features such as color and shape
+     * @param ball      passing in the Object/Reference variable of the BallController class. Aggregation relationship.
+     * @param g2d
+     */
     private void drawBall(BallController ball, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -180,6 +217,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         g2d.setColor(tmp);
     }
 
+    /**
+     * drawPlayer is a private Method that draws the player components to the in-game screen.
+     * Draws the player shape, color.
+     * @param p     passing in the Object/Reference variable of the PlayerModel class. Aggregation relationship.
+     * @param g2d
+     */
     private void drawPlayer(PlayerModel p, Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -193,11 +236,23 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         g2d.setColor(tmp);
     }
 
+    /**
+     * drawMenu calls the obscureGameBoard and drawPauseMenu methods to completely draw the Pause Menu screen.
+     * Draws the Pause Menu screen and background.
+     * Draws the text and buttons in the Pause Menu.
+     * @param g2d
+     */
     private void drawMenu(Graphics2D g2d){
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
     }
 
+    /**
+     * obscureGameBoard is a private Method that draws the Pause Menu container screen and sets its properties.
+     * Draws on top of the existing In-Game Screen.
+     * Handles the blending and transparency of the screen.
+     * @param g2d
+     */
     private void obscureGameBoard(Graphics2D g2d){
 
         Composite tmp = g2d.getComposite();
@@ -213,6 +268,11 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         g2d.setColor(tmpColor);
     }
 
+    /**
+     * drawPauseMenu is a private Method that draws and renders the fonts on the Pause Menu Screen.
+     * Draws the CONTINUE, RESTART and EXIT buttons.
+     * @param g2d
+     */
     private void drawPauseMenu(Graphics2D g2d){
         Font tmpFont = g2d.getFont();
         Color tmpColor = g2d.getColor();
@@ -271,6 +331,13 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     public void keyTyped(KeyEvent keyEvent) {
     }
 
+    /**
+     * keyPressed implements the method in KeyListener.
+     * Listens and notifies if a key is pressed.
+     * Implements the next course of actions if specific keys are pressed, such as:
+     * A: move player left, D: move player right, ESC: show pause menu, SPACE: pause game, ALT-SHIFT-F1: display DebugConsole.
+     * @param keyEvent      to indicate if a key action has occurred or not.
+     */
     @Override
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
@@ -300,11 +367,21 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         }
     }
 
+    /**
+     * keyReleased implements the method in KeyListener.
+     * Stops the player's movement once key released.
+     * @param keyEvent      to indicate if a key action has occurred or not.
+     */
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         wall.player.stop();
     }
 
+    /**
+     * mouseClicked implements the method in MouseListener.
+     * Implements the next course of actions if the CONTINUE, RESTART and EXIT buttons are clicked on.
+     * @param mouseEvent    to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -352,6 +429,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     }
 
+    /**
+     * mouseMoved implements the method in MouseListener.
+     * Implements what the cursor should look like when the cursor hovers over the CONTINUE, RESTART and EXIT buttons.
+     * Implements what the cursor should look like otherwise.
+     * @param mouseEvent       to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -366,6 +449,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         }
     }
 
+    /**
+     * onLostFocus method implements what should occur when focus is lost.
+     * Stops the game timer.
+     * Prints out the message mentioning the focus is lost.
+     * Redraw the screen.
+     */
     public void onLostFocus(){
         gameTimer.stop();
         message = "Focus Lost";
