@@ -181,6 +181,11 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         g2d.setColor(prev);
     }
 
+    /**
+     * drawText Method is used to render the text for the Home Menu page.
+     * Responsible for drawing the Game Title, Greetings and Credits on the Menu.
+     * @param g2d
+     */
     private void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
@@ -214,6 +219,13 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * drawButton Method is used to render the button features and elements such as:
+     * The logical bounds of the Start and Exit button text.
+     * Sets the location of the buttons on the menuFace.
+     * Changes the text and button color when clicked.
+     * @param g2d
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -282,6 +294,13 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * mouseClicked implements the method in MouseListener.
+     * It contains the implementation for when user clicks on the START or EXIT buttons.
+     * START button will enable the GameBoard.
+     * EXIT button will display a message "Goodbye _user_name" in the terminal.
+     * @param mouseEvent        to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -295,6 +314,10 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         }
     }
 
+    /**
+     * mousePressed Method invoked when a mouse button has been pressed on the START and EXIT buttons.
+     * @param mouseEvent    to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -309,6 +332,10 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
         }
     }
 
+    /**
+     * mouseReleased Method invoked when the mouse is released.
+     * @param mouseEvent    to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(startClicked ){
@@ -337,6 +364,11 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * mouseMoved Method implements what should happen when the mouse hovers over the START or EXIT button
+     * and what the cursor should look like otherwise.
+     * @param mouseEvent    to indicate if a mouse action has occurred or not.
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
