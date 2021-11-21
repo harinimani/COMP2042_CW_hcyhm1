@@ -26,6 +26,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
 
+/**
+ * GameFrameModel is the class responsible for the implementation of the Game Frame window.
+ */
 public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
@@ -35,6 +38,9 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     private boolean gaming;
 
+    /**
+     * GameFrameModel is a Default Constructor that adds the HomeMenu page to the Game frame.
+     */
     public GameFrameModel(){
         super();
 
@@ -53,6 +59,11 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * initialize is a Method to initialize the in-game frame.
+     * Sets the title for the game frame window.
+     * Handles the window's closing options.
+     */
     public void initialize(){
         this.setTitle(DEF_TITLE);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -61,6 +72,11 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
         this.setVisible(true);
     }
 
+    /**
+     * enableGameBoard is a Method that makes the transition from the HomeMenu to the GameBoard screen.
+     * It removes the HomeMenu page and adds the GameBoard page.
+     * It also sets the frame's features and properties such as Frame decorations and Window Focus Listeners.
+     */
     public void enableGameBoard(){
         this.dispose();
         this.remove(homeMenu);
@@ -72,6 +88,9 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * autoLocate is a Method that sets the location of the Game Frame depending on the device's screen size.
+     */
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (size.width - this.getWidth()) / 2;
@@ -80,6 +99,11 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
     }
 
 
+    /**
+     * windowGainedFocus implements the method in WindowListener.
+     * Handles implementation for when Game Board is back in focus.
+     * @param windowEvent       to indicate if a key action has occurred or not.
+     */
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
         /*
@@ -93,6 +117,12 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
         gaming = true;
     }
 
+    /**
+     * windowLostFocus implements the method in WindowListener.
+     * Handles implementation when Game Board has lost focus.
+     * Calls the onLostFocus method from the GameBoardView class.
+     * @param windowEvent   to indicate if a key action has occurred or not.
+     */
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
         if(gaming)

@@ -5,9 +5,9 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
+
 /**
- * Created by filippo on 04/09/16.
- *
+ *  BrickController is an Abstract Class that handles all the implementations regarding the Bricks in the game.
  */
 abstract public class BrickController {
 
@@ -22,7 +22,10 @@ abstract public class BrickController {
     public static final int RIGHT_IMPACT = 400;
 
 
-
+    /**
+     * Crack class is a Nested Class under the BrickController abstract class as it is a feature of the Brick class.
+     * Responsible for all the implementations regarding the crack generated when a ball makes an impact with a brick.
+     */
     public class Crack{
 
         private static final int CRACK_SECTIONS = 3;
@@ -43,6 +46,14 @@ abstract public class BrickController {
         private int steps;
 
 
+        /**
+         * Crack is a Parameterized Constructor that creates the crack.
+         * Sets a randomly generated path from the point of impact.
+         * Sets the depth of the crack.
+         * Sets the crack steps.
+         * @param crackDepth
+         * @param steps
+         */
         public Crack(int crackDepth, int steps){
 
             crack = new GeneralPath();
@@ -52,16 +63,27 @@ abstract public class BrickController {
         }
 
 
-
+        /**
+         * draw Method is responsible for drawing out the crack.
+         * @return
+         */
         public GeneralPath draw(){
 
             return crack;
         }
 
+        /**
+         * reset is a Method to reset the crack.
+         */
         public void reset(){
             crack.reset();
         }
 
+        /**
+         * makeCrack is responsible for setting the start and end location of the crack.
+         * @param point         the point of impact.
+         * @param direction     the direction of the crack.
+         */
         public void makeCrack(Point2D point, int direction){
             Rectangle bounds = BrickController.this.brickFace.getBounds();
 
@@ -102,6 +124,11 @@ abstract public class BrickController {
             }
         }
 
+        /**
+         * makeCrack Method is responsible for making a randomly generated path from the start point to the end point.
+         * @param start
+         * @param end
+         */
         protected void makeCrack(Point start, Point end){
 
             GeneralPath path = new GeneralPath();
@@ -133,6 +160,11 @@ abstract public class BrickController {
             crack.append(path,true);
         }
 
+        /**
+         * randomInBounds is a Private Method that is responsible for returning a random number between the bound value and the negative bound value.
+         * @param bound     the bound value.
+         * @return          returns a random integer value between the bound value and the negative bound value.
+         */
         private int randomInBounds(int bound){
             int n = (bound * 2) + 1;
             return rnd.nextInt(n) - bound;
@@ -187,6 +219,18 @@ abstract public class BrickController {
     private boolean broken;
 
 
+    /**
+     * BrickController is a Parameterized Constructor that that handles the initial implementation of the brick.
+     * Sets the brick name.
+     * Sets the brick status as NOT BROKEN.
+     * Creates the brick.
+     * @param name      brick name
+     * @param pos       brick position/location
+     * @param size      size of the brick
+     * @param border    brick border color
+     * @param inner     brick inner color
+     * @param strength  brick's strength
+     */
     public BrickController(String name, Point pos, Dimension size, Color border, Color inner, int strength){
         rnd = new Random();
         broken = false;
@@ -198,28 +242,62 @@ abstract public class BrickController {
 
     }
 
+    /**
+     * makeBall is an Abstract Method which creates the ball.
+     * This method will later be implemented by the Cement, Clay and Steel brick classes or any other extensions the programmer wishes to add
+     * @param pos       the position/location of the brick.
+     * @param size      size of the brick.
+     * @return          returns the brick.
+     */
     protected abstract Shape makeBrickFace(Point pos,Dimension size);
 
-    public  boolean setImpact(Point2D point , int dir){
+    /**
+     * setImpact Method is responsible for letting know if an impact has occurred.
+     * If brick is broken, will return false. Denoting no impact made.
+     * Else, will run the impact method and after impact, return the if brick broken of not.
+     * @param point     point of impact.
+     * @param dir       direction of impact.
+     * @return          returns a boolean value to state if brick is broken or not.
+     */
+    public boolean setImpact(Point2D point , int dir){
         if(broken)
             return false;
         impact();
         return  broken;
     }
 
+    /**
+     * getBrick is an Abstract Method that will be later implemented.
+     * Returns the brick shape.
+     * @return      returns the brick.
+     */
     public abstract Shape getBrick();
 
 
-
+    /**
+     * getBorderColor Method is responsible for returning border color of brick.
+     * Encapsulation of the border variable.
+     * @return      returns border color of brick
+     */
     public Color getBorderColor(){
         return  border;
     }
 
+    /**
+     * getBorderColor Method is responsible for returning border color of brick.
+     * Encapsulation of the border variable.
+     * @return      returns border color of brick
+     */
     public Color getInnerColor(){
         return inner;
     }
 
 
+    /**
+     * findImpact Method is responsible for determining the direction of the impact from the ball on the brick.
+     * @param b     passing in the Object/Reference variable of the BallController class. Aggregation relationship.
+     * @return
+     */
     public final int findImpact(BallController b){
         if(broken)
             return 0;
@@ -235,15 +313,29 @@ abstract public class BrickController {
         return out;
     }
 
+    /**
+     * isBroken Method is responsible for returning if the brick is broken or not.
+     * Encapsulation of the broken variable.
+     * @return      returns the boolean value of broken variable.
+     */
     public final boolean isBroken(){
         return broken;
     }
 
+    /**
+     * repair Method is responsible for repairing the brick.
+     * Sets the broken back to NOT broken.
+     * Sets strength to full capacity.
+     */
     public void repair() {
         broken = false;
         strength = fullStrength;
     }
 
+    /**
+     * impact Method is responsible to set the broken variable based on the brick's status.
+     * Also responsible for deducting the strength of a brick when an impact has occurred.
+     */
     public void impact(){
         strength--;
         broken = (strength == 0);
