@@ -33,4 +33,4 @@ A build file is added as it automatically downloads and configures the dependenc
 Classes were seperated into respective packages based on the MVC pattern. The MVC pattern seperates an application into 3 main logical componnents: model, view, and controller.
 The Model contains core functionality and data of the application. It manages the system data and associated operation of data.
 The View displays the data to the user, but cannot influence what the user will do with the data. It defines and manages how the data is presented to the user.
-The Controller acts on both the model and view.
+The Controller acts on both the model and view. Controllers inform the model what to do.
