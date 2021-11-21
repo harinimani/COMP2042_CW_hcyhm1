@@ -22,4 +22,4 @@ The game automatically pause if the frame loses focus.
 Classes were seperated into respective packages based on the MVC pattern. The MVC pattern seperates an application into 3 main logical componnents: model, view, and controller.
 The Model contains core functionality and data of the application. Manages the system data and associated operation of data.
 The View displays data to user, but cannot influence what user will do with the data. It defines and manages how the data is presented to the user.
-The Controller acts building blocks between the model and view. It handles the input from user and acts appropriately based on view trigger events. Manages user interactions and passes these interactions to the view and model.
+The Controller acts on both the model and view.
