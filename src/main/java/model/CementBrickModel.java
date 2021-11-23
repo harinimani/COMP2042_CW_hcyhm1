@@ -1,6 +1,7 @@
 package model;
 
 import controller.BrickController;
+import controller.CrackController;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -20,7 +21,7 @@ public class CementBrickModel extends BrickController {
     private static final Color DEF_BORDER = new Color(217, 199, 175);
     private static final int CEMENT_STRENGTH = 2;
 
-    private Crack crack;
+    private CrackController crack;
     private Shape brickFace;
 
 
@@ -33,7 +34,7 @@ public class CementBrickModel extends BrickController {
      */
     public CementBrickModel(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
-        crack = new Crack(DEF_CRACK_DEPTH,DEF_STEPS);
+        crack = new CrackController(this, DEF_CRACK_DEPTH,DEF_STEPS);
         brickFace = super.brickFace;
     }
 
