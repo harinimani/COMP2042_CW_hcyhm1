@@ -37,9 +37,12 @@ The View displays the data to the user, but cannot influence what the user will 
 The Controller acts on both the model and view. Controllers inform the model what to do.
 
 
-**2. Using SOLID Design Principle: Single Responsibility Principle**
+**2. Single Responsibility Principle**
   
   Single Responsibility Principle states that an object should only have one responsibility. Hence classes with multiple functionalities do not withhold to this principle.
   One such class is the Crack nested class within the Brick class. The Crack class has be removed as a seperate class to withhold to this principle.
   
+
+**3. Open-Closed Principle**
   
+  The SOLID design, Open-Closed principle states the software entities must be open for 'extension' but closed for 'modification'.
