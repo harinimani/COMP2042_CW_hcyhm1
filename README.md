@@ -1,5 +1,5 @@
 # COMP2042_CW_hcyhm1 - Brick Breaker Game
-This report provides a summary on the major refactoring activities, additions and documentations made to the given codes for the Software Maintenance (COMP2042) Coursework 2021.
+This report provides a summary on the major refactoring activities, additions and documentations made to the [given](https://github.com/FilippoRanza/Brick_Destroy) codes for the Software Maintenance (COMP2042) Coursework 2021.
 # About the Game
 This is a simple arcade video game. Player's goal is to destroy a wall with a small ball. The game has very simple commands: 
 
