@@ -5,19 +5,12 @@ This is a simple arcade video game. Player's goal is to destroy a wall with a sm
 
 |     Keys      |     Action    |
 | ------------- | ------------- |
-|`SPACE`| Start/Pause Game |
-| `A` | Content Cell  |
-| `D` | Content Cell  |
-
-SPACE - Start/Pause the game 
-
-A - move the player LEFT
-
-D - move the player RIGHT 
-
-ESC - Enter/Exit the pause menu 
-
-ALT+SHITF+F1 - open console 
+|`SPACE`|Start/Pause Game|
+|`A`|Moves the Player LEFT|
+|`D`|Moves the Player RIGHT|
+|`ESC`|Enter/Exit the Pause Menu|
+|`ALT+SHIFT+F1`|Open Debug Console|
+ 
 
 The game automatically pause if the frame loses focus.
 # Gradle Run
