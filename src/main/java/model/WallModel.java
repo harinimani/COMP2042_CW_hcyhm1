@@ -382,6 +382,15 @@ public class WallModel {
         return level < levels.length;
     }
 
+    /**
+     * getLevel is a Getter Method that returns the current game level.
+     * Encapsulation of the level variable.
+     * @return      returns the game level
+     */
+    public int getLevel() {
+        return level;
+    }
+
     public void setBallXSpeed(int s){
         ball.setXSpeed(s);
     }

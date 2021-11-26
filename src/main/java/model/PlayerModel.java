@@ -102,7 +102,7 @@ public class PlayerModel {
      * movRight is a Method that handles the movement of the player to the right.
      * Sets the move amount and direction when move right.
      */
-    public void movRight(){
+    public void moveRight(){
         moveAmount = DEF_MOVE_AMOUNT;
     }
 

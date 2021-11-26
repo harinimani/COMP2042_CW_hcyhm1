@@ -88,6 +88,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         debugConsole = new DebugConsoleView(owner,wall,this);
         //initialize the first level
         wall.nextLevel();
+        message = "Level "+wall.getLevel();
 
         gameTimer = new Timer(10,e ->{
             wall.move();
@@ -345,7 +346,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                 wall.player.moveLeft();
                 break;
             case KeyEvent.VK_D:
-                wall.player.movRight();
+                wall.player.moveRight();
                 break;
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
@@ -392,7 +393,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             repaint();
         }
         else if(restartButtonRect.contains(p)){
-            message = "Restarting Game...";
+            message = "Level "+wall.getLevel()+"!  Restarting Game...";
             wall.ballReset();
             wall.wallReset();
             showPauseMenu = false;

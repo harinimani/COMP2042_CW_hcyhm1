@@ -1,7 +1,7 @@
 model/PlayerModel.java
  model.PlayerModel
-model/GameFrameModel.java
- model.GameFrameModel
+view/GameBoardView.java
+ view.GameBoardView
 view/DebugConsoleView.java
  view.DebugConsoleView
 controller/BallController.java
@@ -10,8 +10,8 @@ model/RubberBallModel.java
  model.RubberBallModel
 controller/DebugPanelController.java
  controller.DebugPanelController
-view/HomeMenuView.java
- view.HomeMenuView
+controller/CrackController.java
+ controller.CrackController
 model/WallModel.java
  model.WallModel
 model/CementBrickModel.java
@@ -24,7 +24,9 @@ model/SteelBrickModel.java
  model.SteelBrickModel
 model/ClayBrickModel.java
  model.ClayBrickModel
-controller/CrackController.java
- controller.CrackController
-view/GameBoardView.java
- view.GameBoardView
+model/GameFrameModel.java
+ model.GameFrameModel
+view/InstructionBoardView.java
+ view.InstructionBoardView
+view/HomeMenuView.java
+ view.HomeMenuView
