@@ -3,6 +3,12 @@ This report provides a summary on the major refactoring activities, additions an
 # About the Game
 This is a simple arcade video game. Player's goal is to destroy a wall with a small ball. The game has very simple commmand: 
 
+|     Keys      |     Action    |
+| ------------- | ------------- |
+|`SPACE`| Start/Pause Game |
+| `A` | Content Cell  |
+| `D` | Content Cell  |
+
 SPACE - Start/Pause the game 
 
 A - move the player LEFT
