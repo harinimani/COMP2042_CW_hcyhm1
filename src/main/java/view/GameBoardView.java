@@ -54,7 +54,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     private boolean showPauseMenu;
 
-    private Font menuFont;
+    private Font pauseMenuFont;
 
     private Rectangle continueButtonRect;
     private Rectangle exitButtonRect;
@@ -78,7 +78,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
 
 
-        menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
+        pauseMenuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
 
 
         this.initialize();
@@ -104,7 +104,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             }
             else if(wall.isDone()){
                 if(wall.hasLevel()){
-                    message = "Go to Next Level";
+                    message = "Go to Next Level: Level "+(wall.getLevel()+1);
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
@@ -279,12 +279,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         Color tmpColor = g2d.getColor();
 
 
-        g2d.setFont(menuFont);
+        g2d.setFont(pauseMenuFont);
         g2d.setColor(MENU_COLOR);
 
         if(strLen == 0){
             FontRenderContext frc = g2d.getFontRenderContext();
-            strLen = menuFont.getStringBounds(PAUSE,frc).getBounds().width;
+            strLen = pauseMenuFont.getStringBounds(PAUSE,frc).getBounds().width;
         }
 
         int x = (this.getWidth() - strLen) / 2;
@@ -298,7 +298,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
         if(continueButtonRect == null){
             FontRenderContext frc = g2d.getFontRenderContext();
-            continueButtonRect = menuFont.getStringBounds(CONTINUE,frc).getBounds();
+            continueButtonRect = pauseMenuFont.getStringBounds(CONTINUE,frc).getBounds();
             continueButtonRect.setLocation(x,y-continueButtonRect.height);
         }
 

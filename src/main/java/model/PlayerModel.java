@@ -18,6 +18,7 @@
 package model;
 
 import controller.BallController;
+import controller.PlayerController;
 
 import java.awt.*;
 
@@ -25,7 +26,7 @@ import java.awt.*;
 /**
  * PlayerModel class is responsible for all the implementations regarding the player.
  */
-public class PlayerModel {
+public class PlayerModel extends PlayerController {
 
 
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
