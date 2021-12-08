@@ -81,7 +81,7 @@ public class SteelBrickModel extends BrickController {
      * @param dir   direction of impact.
      * @return      returns a boolean value stating if an impact has occurred or not.
      */
-    public  boolean setImpact(Point2D point , int dir){
+    public boolean setImpact(Point2D point , int dir){
         if(super.isBroken())
             return false;
         impact();

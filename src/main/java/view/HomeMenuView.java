@@ -332,6 +332,7 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
      * It contains the implementation for when user clicks on the START or EXIT buttons.
      * START button will enable the GameBoard.
      * EXIT button will display a message "Goodbye _user_name" in the terminal.
+     * INFO button will pop up the Instructions Menu Screen.
      * @param mouseEvent        to indicate if a mouse action has occurred or not.
      */
     @Override
@@ -352,7 +353,7 @@ public class HomeMenuView extends JComponent implements MouseListener, MouseMoti
     }
 
     /**
-     * mousePressed Method invoked when a mouse button has been pressed on the START and EXIT buttons.
+     * mousePressed Method invoked when a mouse button has been pressed on the START, INFO and EXIT buttons.
      * @param mouseEvent    to indicate if a mouse action has occurred or not.
      */
     @Override

@@ -3,6 +3,7 @@ package model;
 import controller.BrickController;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 
 /**
@@ -37,6 +38,14 @@ public class ClayBrickModel extends BrickController {
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
         return new Rectangle(pos,size);
+    }
+
+    @Override
+    public boolean setImpact(Point2D point, int dir) {
+        if(super.isBroken())
+            return false;
+        impact();
+        return true;
     }
 
     /**

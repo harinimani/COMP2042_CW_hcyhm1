@@ -78,12 +78,7 @@ abstract public class BrickController {
      * @param dir       direction of impact.
      * @return          returns a boolean value to state if brick is broken or not.
      */
-    public boolean setImpact(Point2D point , int dir){
-        if(broken)
-            return false;
-        impact();
-        return  broken;
-    }
+    public abstract boolean setImpact(Point2D point , int dir);
 
     /**
      * getBrick is an Abstract Method that will be later implemented.
