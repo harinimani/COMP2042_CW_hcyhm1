@@ -117,7 +117,7 @@ public class WallModel {
              * because for every brick program checks for horizontal and vertical impacts
              */
             brickCount--;
-            //ADD IN POINTS INCREMENTING
+            //Incrementing total number of Bricks Broken when impact made.
             setBrickBroken(getBrickBroken()+1);
         }
         else if(impactBorder()) {

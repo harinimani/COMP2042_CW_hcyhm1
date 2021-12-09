@@ -19,6 +19,7 @@ package view;
 
 import controller.BallController;
 import controller.BrickController;
+import controller.GameTimeController;
 import model.LevelsModel;
 import model.PlayerModel;
 import model.WallModel;
@@ -48,6 +49,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     private WallModel wall;
 
     private String message;
+    private String message2;
 
     private boolean showPauseMenu;
 
@@ -56,6 +58,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     private DebugConsoleView debugConsole;
     private PauseMenuView pauseMenu;
     private LevelsModel level;
+    private GameTimeController displayTime;
 
 
     /**
@@ -78,9 +81,11 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
         this.initialize();
         message = "";
+        message2 = "";
         wall = new WallModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),new Point(300,430));
         level = new LevelsModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,wall);
 
+        displayTime = new GameTimeController();
         debugConsole = new DebugConsoleView(owner,wall,level,this);
         //initialize the first level
         level.nextLevel();
@@ -89,24 +94,30 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
+            displayTime.setGameIsRunning(true);
             message = String.format("Bricks: %d  Balls: %d",wall.getBrickCount(),wall.getBallCount());
+            message2 = String.format("Total Bricks Broken: %d  Timer: %02dm:%02ds",wall.getBrickBroken() ,displayTime.getMinutes(),displayTime.getSeconds());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
+                    displayTime.setGameIsRunning(false);
                     message = "Game over";
                 }
+                displayTime.setGameIsRunning(false);
                 wall.ballReset();
                 gameTimer.stop();
             }
             else if(wall.isDone()){
                 if(level.hasLevel()){
                     message = "Go to Next Level: Level "+(level.getLevel()+1);
+                    message2 ="";
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
                     level.nextLevel();
                 }
                 else{
+                    displayTime.setGameIsRunning(false);
                     message = "ALL WALLS DESTROYED";
                     gameTimer.stop();
                 }
@@ -148,7 +159,8 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         clear(g2d);
 
         g2d.setColor(Color.BLUE);
-        g2d.drawString(message,250,225);
+        g2d.drawString(message,250,225);    //location of message on the screen
+        g2d.drawString(message2,200,245);   //location of message2 on the screen
 
         drawBall(wall.ball,g2d);
 
@@ -258,18 +270,25 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
                 repaint();
+                displayTime.setGameIsRunning(false);
                 gameTimer.stop();
                 break;
             case KeyEvent.VK_SPACE:
                 if(!showPauseMenu)
-                    if(gameTimer.isRunning())
+                    if(gameTimer.isRunning()){
+                        displayTime.setGameIsRunning(false);
                         gameTimer.stop();
-                    else
+                    }
+                    else{
                         gameTimer.start();
+                        displayTime.setGameIsRunning(true);
+                    }
                 break;
             case KeyEvent.VK_F1:
-                if(keyEvent.isAltDown() && keyEvent.isShiftDown())
+                if(keyEvent.isAltDown() && keyEvent.isShiftDown()){
                     debugConsole.setVisible(true);
+                    displayTime.setGameIsRunning(false);
+                }
             default:
                 wall.player.stop();
         }
@@ -365,6 +384,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
      */
     public void onLostFocus(){
         gameTimer.stop();
+        displayTime.setGameIsRunning(false);
         message = "Focus Lost";
         repaint();
     }
