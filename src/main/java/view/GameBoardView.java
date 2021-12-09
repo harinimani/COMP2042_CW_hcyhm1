@@ -19,6 +19,7 @@ package view;
 
 import controller.BallController;
 import controller.BrickController;
+import model.LevelsModel;
 import model.PlayerModel;
 import model.WallModel;
 
@@ -52,9 +53,9 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     private Font pauseMenuFont;
 
-
     private DebugConsoleView debugConsole;
     private PauseMenuView pauseMenu;
+    private LevelsModel level;
 
 
     /**
@@ -77,12 +78,13 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
         this.initialize();
         message = "";
-        wall = new WallModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
+        wall = new WallModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),new Point(300,430));
+        level = new LevelsModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,wall);
 
-        debugConsole = new DebugConsoleView(owner,wall,this);
+        debugConsole = new DebugConsoleView(owner,wall,level,this);
         //initialize the first level
-        wall.nextLevel();
-        message = "Level "+wall.getLevel();
+        level.nextLevel();
+        message = "Level "+level.getLevel();
 
         gameTimer = new Timer(10,e ->{
             wall.move();
@@ -97,12 +99,12 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                 gameTimer.stop();
             }
             else if(wall.isDone()){
-                if(wall.hasLevel()){
-                    message = "Go to Next Level: Level "+(wall.getLevel()+1);
+                if(level.hasLevel()){
+                    message = "Go to Next Level: Level "+(level.getLevel()+1);
                     gameTimer.stop();
                     wall.ballReset();
                     wall.wallReset();
-                    wall.nextLevel();
+                    level.nextLevel();
                 }
                 else{
                     message = "ALL WALLS DESTROYED";
@@ -298,7 +300,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             repaint();
         }
         else if(pauseMenu.getRestartButtonRect().contains(p)){
-            message = "Level "+wall.getLevel()+"!  Restarting Game...";
+            message = "Level "+level.getLevel()+"!  Restarting Game...";
             wall.ballReset();
             wall.wallReset();
             showPauseMenu = false;

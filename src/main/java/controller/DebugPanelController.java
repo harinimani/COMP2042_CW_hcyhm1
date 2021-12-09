@@ -17,6 +17,7 @@
  */
 package controller;
 
+import model.LevelsModel;
 import model.WallModel;
 
 import javax.swing.*;
@@ -40,6 +41,7 @@ public class DebugPanelController extends JPanel {
     private JSlider ballYSpeed;
 
     private WallModel wall;
+    private LevelsModel level;
 
     /**
      * DebugPanelController is a Parameterized Constructor that initializes the Debug Console window and it's properties.
@@ -49,14 +51,15 @@ public class DebugPanelController extends JPanel {
      * Creates a slider for the ball y-axis speed.
      * @param wall      passing in the Object/Reference variable of the WallController class. Aggregation relationship.
      */
-    public DebugPanelController(WallModel wall){
+    public DebugPanelController(WallModel wall, LevelsModel level){
 
         this.wall = wall;
+        this.level = level;
 
         initialize();
 
         //create buttons for the SKIP LEVEL and RESET BALLS
-        skipLevel = makeButton("Skip Level",e -> wall.nextLevel());
+        skipLevel = makeButton("Skip Level",e -> level.nextLevel());
         resetBalls = makeButton("Reset Balls",e -> wall.resetBallCount());
 
         //creates a slider for the ball's speed in the x and y-axis directions
