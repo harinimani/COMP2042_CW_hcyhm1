@@ -1,0 +1,5 @@
+Name,Bricks,Min,Sec
+har,7,1,15
+ty,6,0,40
+lala,4,0,41
+fas,1,1,27

@@ -20,6 +20,7 @@ package view;
 import controller.BallController;
 import controller.BrickController;
 import controller.GameTimeController;
+import controller.ScoreController;
 import model.LevelsModel;
 import model.PlayerModel;
 import model.WallModel;
@@ -59,6 +60,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     private PauseMenuView pauseMenu;
     private LevelsModel level;
     private GameTimeController displayTime;
+    private ScoreController score;
 
 
     /**
@@ -86,6 +88,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         level = new LevelsModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,wall);
 
         displayTime = new GameTimeController();
+        score = new ScoreController(wall);
         debugConsole = new DebugConsoleView(owner,wall,level,this);
         //initialize the first level
         level.nextLevel();
@@ -101,6 +104,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                 if(wall.ballEnd()){
                     wall.wallReset();
                     displayTime.setGameIsRunning(false);
+                    score.sortScores();
                     message = "Game over";
                 }
                 displayTime.setGameIsRunning(false);
@@ -120,6 +124,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                     displayTime.setGameIsRunning(false);
                     message = "ALL WALLS DESTROYED";
                     gameTimer.stop();
+                    score.sortScores();
                 }
             }
 

@@ -19,6 +19,8 @@ package model;
 
 import view.GameBoardView;
 import view.HomeMenuView;
+import view.InstructionBoardView;
+import view.LeaderboardView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,6 +37,8 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     private GameBoardView gameBoard;
     private HomeMenuView homeMenu;
+    private LeaderboardView leaderboard;
+    private InstructionBoardView infoboard;
 
     private boolean gaming;
 
@@ -50,11 +54,14 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
         gameBoard = new GameBoardView(this);
 
-        homeMenu = new HomeMenuView(this,new Dimension(450,300));
+        leaderboard = new LeaderboardView(this);
+        infoboard = new InstructionBoardView(this);
+
+        homeMenu = new HomeMenuView(this);
 
         this.add(homeMenu,BorderLayout.CENTER);
 
-        this.setUndecorated(true);
+        this.setUndecorated(false);
 
 
     }
@@ -85,6 +92,53 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
         initialize();
         /*to avoid problems with graphics focus controller is added here*/
         this.addWindowFocusListener(this);
+
+    }
+
+    public void enableLeaderboard(){
+        this.dispose();
+        this.remove(homeMenu);  //removes the homeMenu from the Game frame
+        this.add(leaderboard,BorderLayout.CENTER);
+        this.setUndecorated(false);     //frame decorations enabled for the In-game screen/GameBoardView page.
+        initialize();
+        /*to avoid problems with graphics focus controller is added here*/
+        this.addWindowFocusListener(this);  //listens and receives window events.
+
+    }
+
+    public void enableInfoBoard(){
+        this.dispose();
+        this.remove(homeMenu);  //removes the homeMenu from the Game frame
+        //this.add(gameBoard,BorderLayout.CENTER);    //adds the in-game screen to the game frame.
+        this.add(infoboard,BorderLayout.CENTER);
+        this.setUndecorated(false);     //frame decorations enabled for the In-game screen/GameBoardView page.
+        initialize();
+        /*to avoid problems with graphics focus controller is added here*/
+        this.addWindowFocusListener(this);  //listens and receives window events.
+
+    }
+
+    public void enableHomeMenuboard(){
+        this.dispose();
+        this.remove(leaderboard);  //removes the homeMenu from the Game frame
+        //this.add(gameBoard,BorderLayout.CENTER);    //adds the in-game screen to the game frame.
+        this.add(homeMenu,BorderLayout.CENTER);
+        this.setUndecorated(false);     //frame decorations enabled for the In-game screen/GameBoardView page.
+        initialize();
+        /*to avoid problems with graphics focus controller is added here*/
+        this.addWindowFocusListener(this);  //listens and receives window events.
+
+    }
+
+    public void enableHomemenuFromInfo(){
+        this.dispose();
+        this.remove(infoboard);  //removes the homeMenu from the Game frame
+        //this.add(gameBoard,BorderLayout.CENTER);    //adds the in-game screen to the game frame.
+        this.add(homeMenu,BorderLayout.CENTER);
+        this.setUndecorated(false);     //frame decorations enabled for the In-game screen/GameBoardView page.
+        initialize();
+        /*to avoid problems with graphics focus controller is added here*/
+        this.addWindowFocusListener(this);  //listens and receives window events.
 
     }
 
