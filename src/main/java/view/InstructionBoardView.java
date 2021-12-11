@@ -14,6 +14,9 @@ import java.io.IOException;
 
 public class InstructionBoardView extends JPanel implements ActionListener {
 
+    private static final String BACK_BUTTON = "src/main/resources/ButtonBg.png";
+    private static final String INFO_BOARD_BG = "src/main/resources/InstructionBg.png";
+
     private Image backgroundImage;
     private Image buttonBg;
     private GameFrameModel owner;
@@ -25,13 +28,13 @@ public class InstructionBoardView extends JPanel implements ActionListener {
         this.owner = owner;
 
         GridBagConstraints c = new GridBagConstraints();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/main/resources/ButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon(BACK_BUTTON).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 
 
         backButton = new JButton("BACK");
 
         try {
-            BufferedImage leaderboardBg = ImageIO.read(new File("src/main/resources/InstructionBg.png"));
+            BufferedImage leaderboardBg = ImageIO.read(new File(INFO_BOARD_BG));
             backgroundImage = leaderboardBg;
         } catch (IOException ex) {
             ex.printStackTrace();

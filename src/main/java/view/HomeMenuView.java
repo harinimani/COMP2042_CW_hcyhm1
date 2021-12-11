@@ -23,8 +23,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -36,14 +34,18 @@ import java.io.IOException;
  */
 public class HomeMenuView extends JPanel implements ActionListener {
 
+    private static final String START_BUTTON_BG = "src/main/resources/ButtonBg.png";
+    private static final String INFO_BUTTON_BG = "src/main/resources/InfoButtonBg.png";
+    private static final String EXIT_BUTTON_BG = "src/main/resources/ExitButtonBg.png";
+    private static final String SCORES_BUTTON_BG = "src/main/resources/ScoresButtonBg.png";
+    private static final String HOME_MENU_BG = "src/main/resources/HomeMenuBg.png";
+
     private Image backgroundImage;
-    private Image buttonBg;
     private GameFrameModel owner;
     private JButton start;
     private JButton info;
     private JButton exit;
     private JButton scores;
-    private ActionListener l;
 
 
     public HomeMenuView(GameFrameModel owner) {
@@ -51,10 +53,10 @@ public class HomeMenuView extends JPanel implements ActionListener {
 
         this.setLayout(new BorderLayout());
         GridBagConstraints c = new GridBagConstraints();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/main/resources/ButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-        ImageIcon imageIcon2 = new ImageIcon(new ImageIcon("src/main/resources/InfoButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-        ImageIcon imageIcon3 = new ImageIcon(new ImageIcon("src/main/resources/ExitButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
-        ImageIcon imageIcon4 = new ImageIcon(new ImageIcon("src/main/resources/ScoresButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon startIcon = new ImageIcon(new ImageIcon(START_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon infoIcon = new ImageIcon(new ImageIcon(INFO_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon exitIcon = new ImageIcon(new ImageIcon(EXIT_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon scoresIcon = new ImageIcon(new ImageIcon(SCORES_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 
         start = new JButton("START");
         info = new JButton("INFO");
@@ -62,7 +64,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         scores = new JButton("SCORES");
 
         try {
-            BufferedImage background = ImageIO.read(new File("src/main/resources/HomeMenuBg.png"));
+            BufferedImage background = ImageIO.read(new File(HOME_MENU_BG));
             backgroundImage = background;
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -82,7 +84,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         start.setFocusPainted(false);
         start.setHorizontalTextPosition(JButton.CENTER);
         start.setVerticalTextPosition(JButton.CENTER);
-        start.setIcon(imageIcon);
+        start.setIcon(startIcon);
         add(start,c);
         start.addActionListener(e -> owner.enableGameBoard());
 
@@ -94,7 +96,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         info.setFocusPainted(false);
         info.setHorizontalTextPosition(JButton.CENTER);
         info.setVerticalTextPosition(JButton.CENTER);
-        info.setIcon(imageIcon2);
+        info.setIcon(infoIcon);
         add(info,c);
         info.addActionListener(e -> owner.enableInfoBoard());
 
@@ -107,7 +109,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         exit.setFocusPainted(false);
         exit.setHorizontalTextPosition(JButton.CENTER);
         exit.setVerticalTextPosition(JButton.CENTER);
-        exit.setIcon(imageIcon3);
+        exit.setIcon(exitIcon);
         add(exit,c);
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -125,7 +127,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         scores.setFocusPainted(false);
         scores.setHorizontalTextPosition(JButton.CENTER);
         scores.setVerticalTextPosition(JButton.CENTER);
-        scores.setIcon(imageIcon4);
+        scores.setIcon(scoresIcon);
         add(scores,c);
         scores.addActionListener(e -> owner.enableLeaderboard());
 

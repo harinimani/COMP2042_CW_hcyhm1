@@ -25,24 +25,24 @@ controller/BrickController.java
  controller.BrickController
 controller/DebugPanelController.java
  controller.DebugPanelController
-view/PauseMenuView.java
- view.PauseMenuView
-model/GameFrameModel.java
- model.GameFrameModel
-view/InstructionBoardView.java
- view.InstructionBoardView
 view/HomeMenuView.java
  view.HomeMenuView
  view.HomeMenuView$1
-view/DebugConsoleView.java
- view.DebugConsoleView
-view/ScoresTableView.java
- view.ScoresTableView
 game/GraphicsMain.java
  game.GraphicsMain
 view/LeaderboardView.java
  view.LeaderboardView
 controller/ScoreController.java
  controller.ScoreController
+view/InstructionBoardView.java
+ view.InstructionBoardView
+view/ScoresTableView.java
+ view.ScoresTableView
+model/GameFrameModel.java
+ model.GameFrameModel
+view/DebugConsoleView.java
+ view.DebugConsoleView
+view/PauseMenuView.java
+ view.PauseMenuView
 view/GameBoardView.java
  view.GameBoardView

@@ -14,13 +14,12 @@ import java.io.IOException;
 
 public class LeaderboardView extends JPanel implements ActionListener {
 
+    private static final String BACK_BUTTON = "src/main/resources/ButtonBg.png";
+    private static final String LEADERBOARD_BG = "src/main/resources/LEADERBOARD.png";
 
     private Image backgroundImage;
-    private Image buttonBg;
     private GameFrameModel owner;
     private JButton backButton;
-    private ActionListener l;
-    private static int length;
     private ScoresTableView scoresTable;
 
     public LeaderboardView(GameFrameModel owner) {
@@ -28,14 +27,13 @@ public class LeaderboardView extends JPanel implements ActionListener {
 
         GridBagConstraints c = new GridBagConstraints();
         GridBagConstraints t = new GridBagConstraints();
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src/main/resources/ButtonBg.png").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
+        ImageIcon buttonBg = new ImageIcon(new ImageIcon(BACK_BUTTON).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 
 
         backButton = new JButton("BACK");
 
         try {
-            BufferedImage leaderboardBg = ImageIO.read(new File("src/main/resources/LEADERBOARD.png"));
-            //backgroundImage = background.getScaledInstance(-1, background.getHeight() / 4, Image.SCALE_SMOOTH);
+            BufferedImage leaderboardBg = ImageIO.read(new File(LEADERBOARD_BG));
             backgroundImage = leaderboardBg;
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -53,7 +51,7 @@ public class LeaderboardView extends JPanel implements ActionListener {
         backButton.setFocusPainted(false);
         backButton.setHorizontalTextPosition(JButton.CENTER);
         backButton.setVerticalTextPosition(JButton.CENTER);
-        backButton.setIcon(imageIcon);
+        backButton.setIcon(buttonBg);
         add(backButton,c);
         backButton.addActionListener(e -> owner.enableHomeMenuboard());
 
