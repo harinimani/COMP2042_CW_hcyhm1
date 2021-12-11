@@ -30,9 +30,9 @@ public class PlayerModel extends PlayerController {
 
 
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
-    public static final Color INNER_COLOR = Color.GREEN;
+    public static Color INNER_COLOR = Color.GREEN;
 
-    private static final int DEF_MOVE_AMOUNT = 5;
+    private static int DEF_MOVE_AMOUNT = 5;
 
     private Rectangle playerFace;
     private Point ballPoint;
@@ -130,4 +130,21 @@ public class PlayerModel extends PlayerController {
         ballPoint.setLocation(p);
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }
+
+    public static void setInnerColor(Color innerColor) {
+        PlayerModel.INNER_COLOR = innerColor;
+    }
+
+    public Color getInnerColor() {
+        return INNER_COLOR;
+    }
+
+    public int getDefMoveAmount() {
+        return DEF_MOVE_AMOUNT;
+    }
+
+    public static void setDefMoveAmount(int defMoveAmount) {
+        PlayerModel.DEF_MOVE_AMOUNT = defMoveAmount;
+    }
+
 }

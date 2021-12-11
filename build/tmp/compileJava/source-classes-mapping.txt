@@ -2,8 +2,8 @@ controller/PlayerController.java
  controller.PlayerController
 model/CementBrickModel.java
  model.CementBrickModel
-model/PlayerModel.java
- model.PlayerModel
+view/ScoresTableView.java
+ view.ScoresTableView
 controller/CrackController.java
  controller.CrackController
 view/InstructionBoardView.java
@@ -36,17 +36,20 @@ model/GameFrameModel.java
  model.GameFrameModel
 view/LeaderboardView.java
  view.LeaderboardView
-model/WallModel.java
- model.WallModel
-view/ScoresTableView.java
- view.ScoresTableView
 model/TimesaverBrickModel.java
  model.TimesaverBrickModel
+model/PlayerModel.java
+ model.PlayerModel
+model/WallModel.java
+ model.WallModel
 controller/DebugPanelController.java
  controller.DebugPanelController
-model/LevelsModel.java
- model.LevelsModel
-view/DebugConsoleView.java
- view.DebugConsoleView
 view/GameBoardView.java
  view.GameBoardView
+view/DebugConsoleView.java
+ view.DebugConsoleView
+model/LevelsModel.java
+ model.LevelsModel
+model/SlowBrickModel.java
+ model.SlowBrickModel
+ model.SlowBrickModel$1

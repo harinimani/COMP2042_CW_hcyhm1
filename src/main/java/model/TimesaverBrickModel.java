@@ -14,12 +14,11 @@ public class TimesaverBrickModel extends BrickController {
     private static final Color DEF_BORDER = Color.BLUE;
     private static final int TIME_SAVER_STRENGTH = 1;
     private GameTimeController displayTime;
-    private Timer bonusTime = new Timer();
+
 
     public TimesaverBrickModel(Point pos, Dimension size) {
         super(NAME,pos,size,DEF_BORDER,DEF_INNER,TIME_SAVER_STRENGTH);
         displayTime = new GameTimeController();
-        //this.wall = wall;
     }
 
     @Override
