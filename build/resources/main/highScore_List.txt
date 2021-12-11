@@ -1,5 +1,5 @@
 Name,Bricks,Min,Sec
+eve,17,0,57
+sam,14,1,18
 har,7,1,15
-ty,6,0,40
-lala,4,0,41
-fas,1,1,27
+mal,3,0,35

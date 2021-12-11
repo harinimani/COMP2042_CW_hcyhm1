@@ -6,11 +6,13 @@ import java.awt.*;
 
 public class LevelsModel {
 
-    private static final int LEVELS_COUNT = 4;
+    private static final int LEVELS_COUNT = 6;
 
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
+    private static final int BONUS = 4;
+    private static final int TIMESAVER = 5;
 
     private BrickController[][] levels;
     private int level;
@@ -134,6 +136,8 @@ public class LevelsModel {
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,BONUS);
+        tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,TIMESAVER);
         return tmp;
     }
 
@@ -148,6 +152,12 @@ public class LevelsModel {
                 break;
             case CEMENT:
                 out = new CementBrickModel(point, size);
+                break;
+            case BONUS:
+                out = new BonusBrickModel(point, size);
+                break;
+            case TIMESAVER:
+                out = new TimesaverBrickModel(point, size);
                 break;
             default:
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));

@@ -88,7 +88,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         level = new LevelsModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,wall);
 
         displayTime = new GameTimeController();
-        score = new ScoreController(wall);
+        score = new ScoreController();
         debugConsole = new DebugConsoleView(owner,wall,level,this);
         //initialize the first level
         level.nextLevel();
@@ -99,7 +99,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             wall.findImpacts();
             displayTime.setGameIsRunning(true);
             message = String.format("Bricks: %d  Balls: %d",wall.getBrickCount(),wall.getBallCount());
-            message2 = String.format("Total Bricks Broken: %d  Timer: %02dm:%02ds",wall.getBrickBroken() ,displayTime.getMinutes(),displayTime.getSeconds());
+            message2 = String.format("Total Bricks Broken: %d  Timer: %02dm:%02ds", WallModel.getBrickBroken() ,displayTime.getMinutes(),displayTime.getSeconds());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();

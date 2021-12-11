@@ -45,7 +45,7 @@ public class WallModel {
     private boolean ballLost;
 
 
-    private int brickBroken;
+    private static int brickBroken;
 
     /**
      * WallModel is a Parameterized Constructor that hat handles the initial implementation of the wall.
@@ -200,7 +200,7 @@ public class WallModel {
             b.repair();
         brickCount = bricks.length;
         ballCount = 3;
-        //add
+
     }
 
     public boolean ballEnd(){
@@ -237,12 +237,12 @@ public class WallModel {
         ballCount = 3;
     }
 
-    public int getBrickBroken() {
+    public static int getBrickBroken() {
         return brickBroken;
     }
 
-    public void setBrickBroken(int brickBroken) {
-        this.brickBroken = brickBroken;
+    public static void setBrickBroken(int brickBroken) {
+        WallModel.brickBroken = brickBroken;
     }
 
 

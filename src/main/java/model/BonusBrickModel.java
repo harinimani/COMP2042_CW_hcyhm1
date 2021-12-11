@@ -12,11 +12,11 @@ public class BonusBrickModel extends BrickController {
     private static final Color DEF_INNER = new Color(255, 51, 119);
     private static final Color DEF_BORDER = new Color(121, 64, 191);
     private static final int BONUS_STRENGTH = 1;
-    private WallModel wall;
+    //private WallModel wall;
 
-    public BonusBrickModel(Point pos, Dimension size, WallModel wall) {
+    public BonusBrickModel(Point pos, Dimension size) {
         super(NAME,pos,size,DEF_BORDER,DEF_INNER,BONUS_STRENGTH);
-        this.wall = wall;
+        //this.wall = wall;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class BonusBrickModel extends BrickController {
 
     public void impact(){
         super.impact();
-        wall.setBrickBroken(wall.getBrickBroken()+3);
+        WallModel.setBrickBroken(WallModel.getBrickBroken() + 3);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package view;
 
+import controller.ScoreController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -27,13 +29,16 @@ public class ScoresTableView extends JPanel {
         try {
             reader = new BufferedReader(new FileReader("src/main/resources/highScore_List.txt"));
             while ((line = reader.readLine()) != null) {
-                String[] row = line.split(",");
-                score[i][0] = row[0];
-                score[i][1] = row[1];
-                score[i][2] = row[2];
-                score[i][3] = row[3];
-                i++;
-                length++;
+
+                if(line.length() > 0){
+                    String[] row = line.split(",");
+                    score[i][0] = row[0];
+                    score[i][1] = row[1];
+                    score[i][2] = row[2];
+                    score[i][3] = row[3];
+                    i++;
+                    length++;
+                }
             }//end of while
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,11 +50,15 @@ public class ScoresTableView extends JPanel {
             }
         }
 
+
+
         String column[]={"NAME","BRICKS BROKEN","MINS","SEC"};
         k=0;
-        for(i=1; i<(length+1); i++){
+        for(i=1; i<6; i++){
             //k=0;
             for(int j=0; j<4; j++){
+                if(score[i][0] == null && score[i][1] == null && score[i][2]==null && score[i][3]==null)
+                    break;
                 data[k][j] = score[i][j];
             }
             k++;

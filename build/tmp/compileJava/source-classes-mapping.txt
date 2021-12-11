@@ -1,48 +1,52 @@
 controller/PlayerController.java
  controller.PlayerController
+model/CementBrickModel.java
+ model.CementBrickModel
 model/PlayerModel.java
  model.PlayerModel
-model/ClayBrickModel.java
- model.ClayBrickModel
-model/WallModel.java
- model.WallModel
 controller/CrackController.java
  controller.CrackController
-controller/BallController.java
- controller.BallController
-model/RubberBallModel.java
- model.RubberBallModel
+view/InstructionBoardView.java
+ view.InstructionBoardView
 model/SteelBrickModel.java
  model.SteelBrickModel
+game/GraphicsMain.java
+ game.GraphicsMain
+model/BonusBrickModel.java
+ model.BonusBrickModel
+controller/BallController.java
+ controller.BallController
 controller/GameTimeController.java
  controller.GameTimeController
  controller.GameTimeController$1
-model/LevelsModel.java
- model.LevelsModel
-model/CementBrickModel.java
- model.CementBrickModel
+model/RubberBallModel.java
+ model.RubberBallModel
 controller/BrickController.java
  controller.BrickController
-controller/DebugPanelController.java
- controller.DebugPanelController
+model/ClayBrickModel.java
+ model.ClayBrickModel
 view/HomeMenuView.java
  view.HomeMenuView
  view.HomeMenuView$1
-game/GraphicsMain.java
- game.GraphicsMain
-view/LeaderboardView.java
- view.LeaderboardView
-controller/ScoreController.java
- controller.ScoreController
-view/InstructionBoardView.java
- view.InstructionBoardView
-view/ScoresTableView.java
- view.ScoresTableView
-model/GameFrameModel.java
- model.GameFrameModel
-view/DebugConsoleView.java
- view.DebugConsoleView
 view/PauseMenuView.java
  view.PauseMenuView
+controller/ScoreController.java
+ controller.ScoreController
+model/GameFrameModel.java
+ model.GameFrameModel
+view/LeaderboardView.java
+ view.LeaderboardView
+model/WallModel.java
+ model.WallModel
+view/ScoresTableView.java
+ view.ScoresTableView
+model/TimesaverBrickModel.java
+ model.TimesaverBrickModel
+controller/DebugPanelController.java
+ controller.DebugPanelController
+model/LevelsModel.java
+ model.LevelsModel
+view/DebugConsoleView.java
+ view.DebugConsoleView
 view/GameBoardView.java
  view.GameBoardView
