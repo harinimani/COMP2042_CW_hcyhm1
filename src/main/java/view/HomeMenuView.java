@@ -30,7 +30,9 @@ import java.io.IOException;
 
 /**
  * HomeMenuView class is the class for the implementation of the starting page when the game begins.
- * Displays the Game Title and the Start and Exit buttons.
+ * Displays the Game Title and the Start,Info,Exit and Scores buttons.
+ *
+ * @author Harini Manikandan
  */
 public class HomeMenuView extends JPanel implements ActionListener {
 
@@ -48,6 +50,10 @@ public class HomeMenuView extends JPanel implements ActionListener {
     private JButton scores;
 
 
+    /**
+     * HomeMenuView is a Parameterized constructor that initializes the home screen.
+     * @param owner     GameFrameController object
+     */
     public HomeMenuView(GameFrameController owner) {
         this.owner = owner;
 
@@ -119,7 +125,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         });
 
 
-        //LEADERBOARD button
+        //Leaderboard button
         setMyConstraints(c,3,2,25,25,GridBagConstraints.LAST_LINE_END);
         scores.setPreferredSize(new Dimension(100, 25));
         scores.setFont(new Font("Arial", Font.BOLD, 20));
@@ -133,11 +139,19 @@ public class HomeMenuView extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * getPreferredSize of the background image.
+     * @return  returns the Dimensions
+     */
     @Override
     public Dimension getPreferredSize() {
         return backgroundImage == null ? super.getPreferredSize() : new Dimension(backgroundImage.getWidth(this), backgroundImage.getHeight(this));
     }
 
+    /**
+     * paintComponent method paints/draws all the components
+     * @param g
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -152,6 +166,15 @@ public class HomeMenuView extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * setMyConstraints method help add components in the correct location using GridBagLayout.
+     * @param c         GridBagConstraints object
+     * @param gridx     grid x-location
+     * @param gridy     grid y-location
+     * @param ipadx     padding in x-axis
+     * @param ipady     padding in y-axis
+     * @param anchor    position of component
+     */
     private static void setMyConstraints(GridBagConstraints c, int gridx, int gridy, int ipadx, int ipady, int anchor) {
         c.gridx = gridx;
         c.gridy = gridy;

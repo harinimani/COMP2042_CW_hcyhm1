@@ -34,6 +34,17 @@ public class GameTimeController {
         },0,1000);
     }
 
+    /**
+     * resetGameTime method resets the time taken back to 0 min:0 sec
+     * Sets seconds and minutes to 0.
+     * set isGameRunning as False to indicate game has not started.
+     */
+    public void resetGameTime()
+    {
+        setSeconds(0);
+        setMinutes(0);
+        setGameIsRunning(false);
+    }
 
     /**
      * Getter method for the seconds variable.

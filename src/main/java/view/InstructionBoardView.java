@@ -12,18 +12,24 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * InstructionBoardView is responsible for displaying the Instructions Screen.
+ *
+ * @author Harini Manikandan
+ */
 public class InstructionBoardView extends JPanel implements ActionListener {
 
     private static final String BACK_BUTTON = "src/main/resources/ButtonBg.png";
     private static final String INFO_BOARD_BG = "src/main/resources/InstructionBg.png";
 
     private Image backgroundImage;
-    private Image buttonBg;
     private GameFrameController owner;
     private JButton backButton;
-    private ActionListener l;
-    private BufferedReader reader;
 
+    /**
+     * InstructionBoardView is a Parameterized constructor that initializes the home screen.
+     * @param owner     GameFrameController object.
+     */
     public InstructionBoardView(GameFrameController owner) {
         this.owner = owner;
 
@@ -86,6 +92,15 @@ public class InstructionBoardView extends JPanel implements ActionListener {
         g.drawImage(backgroundImage, x, y, this);
     }
 
+    /**
+     * setMyConstraints method help add components in the correct location using GridBagLayout.
+     * @param c         GridBagConstraints object
+     * @param gridx     grid x-location
+     * @param gridy     grid y-location
+     * @param ipadx     padding x-axis
+     * @param ipady     padding y-axis
+     * @param anchor    position of component
+     */
     private static void setMyConstraints(GridBagConstraints c, int gridx, int gridy, int ipadx, int ipady, int anchor) {
         c.gridx = gridx;
         c.gridy = gridy;

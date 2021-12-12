@@ -8,6 +8,11 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * ScoresTableView class creates a JTable of the scores list.
+ *
+ * @author Harini Manikandan
+ */
 public class ScoresTableView extends JPanel {
 
     private BufferedReader reader;
@@ -16,6 +21,9 @@ public class ScoresTableView extends JPanel {
     private int i,k,length;
     private String line ="";
 
+    /**
+     * ScoresTableView is a Default Constructor that Reads the text file and prints the results into a JTable.
+     */
     public ScoresTableView() {
         score = new String[6][6];
         data = new String[6][6];
@@ -26,6 +34,7 @@ public class ScoresTableView extends JPanel {
         //this.setLayout(new BorderLayout());
         setLayout(new GridBagLayout());
 
+        //Reads Text File
         try {
             reader = new BufferedReader(new FileReader("src/main/resources/highScore_List.txt"));
             while ((line = reader.readLine()) != null) {
@@ -64,7 +73,7 @@ public class ScoresTableView extends JPanel {
             k++;
         }
 
-
+        //Scores JTable
         setMyConstraints(c,0,0,2,2, GridBagConstraints.CENTER);
         c.insets = new Insets(5,5,5,5);
         c.weightx = 0.5;
@@ -72,15 +81,20 @@ public class ScoresTableView extends JPanel {
         JTable jt=new JTable(data,column);
         jt.setPreferredScrollableViewportSize(new Dimension(450,100));
         jt.setFillsViewportHeight(true);
-        //jt.setBounds(50,200,100,80);
         JScrollPane sp=new JScrollPane(jt);
         sp.setViewportView(jt);
-        //sp.setLocation(80,500);
-        //sp.setPreferredSize(20,30);
-        //jt.setFillsViewportHeight(true);
         add(sp,c);
     }
 
+    /**
+     * setMyConstraints method help add components in the correct location using GridBagLayout.
+     * @param c         GridBagConstraints object
+     * @param gridx     grid x-location
+     * @param gridy     grid y-location
+     * @param ipadx     padding x-axis
+     * @param ipady     padding y-axis
+     * @param anchor    postion of component
+     */
     private static void setMyConstraints(GridBagConstraints c, int gridx, int gridy, int ipadx, int ipady, int anchor) {
         c.gridx = gridx;
         c.gridy = gridy;

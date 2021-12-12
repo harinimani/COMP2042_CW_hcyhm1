@@ -46,8 +46,6 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     private Timer gameTimer;
 
-    private WallModel wall;
-
     private String message;
     private String message2;
 
@@ -55,6 +53,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     private Font pauseMenuFont;
 
+    private WallModel wall;
     private DebugConsoleView debugConsole;
     private PauseMenuView pauseMenu;
     private LevelsModel level;
@@ -75,10 +74,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         pauseMenu.setStrLen(0);
         showPauseMenu = false;
 
-
-
         pauseMenuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
-
 
         this.initialize();
         message = "";
@@ -324,8 +320,11 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         }
         else if(pauseMenu.getRestartButtonRect().contains(p)){
             message = "Level "+level.getLevel()+"!  Restarting Game...";
+            message2 = "";
             wall.ballReset();
             wall.wallReset();
+            WallModel.setBrickBroken(0);
+            displayTime.resetGameTime();
             showPauseMenu = false;
             repaint();
         }

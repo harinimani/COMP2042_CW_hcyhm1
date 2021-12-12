@@ -40,12 +40,13 @@ public class WallModel {
     public PlayerModel player;
 
     private Point startPoint;
-    private int brickCount;
-    private int ballCount;
-    private boolean ballLost;
-
 
     private static int brickBroken;
+    private int brickCount;
+    private int ballCount;
+
+    private boolean ballLost;
+
 
     /**
      * WallModel is a Parameterized Constructor that hat handles the initial implementation of the wall.
@@ -56,7 +57,8 @@ public class WallModel {
 
         this.startPoint = new Point(ballPos);
 
-        ballCount = 3;      //number of balls
+        //number of balls
+        setBallCount(3);
         ballLost = false;
 
         rnd = new Random();
@@ -76,7 +78,6 @@ public class WallModel {
 
         area = drawArea;
 
-        //brickPoints.setPoints(0);
 
 
     }
@@ -127,7 +128,7 @@ public class WallModel {
             ball.reverseY();
         }
         else if(ball.getPosition().getY() > area.getY() + area.getHeight()){
-            ballCount--;
+            setBallCount(getBallCount()-1);
             ballLost = true;
         }
     }
@@ -185,6 +186,14 @@ public class WallModel {
     }
 
     /**
+     * Setter method for setting the number of balls in game.
+     * @param ballCount     number of balls.
+     */
+    public void setBallCount(int ballCount) {
+        this.ballCount = ballCount;
+    }
+
+    /**
      * Getter method for finding if ball lost or not.
      * @return  returns a boolean value of ballLost variable.
      */
@@ -216,7 +225,7 @@ public class WallModel {
         for(BrickController b : bricks)
             b.repair();
         brickCount = bricks.length;
-        ballCount = 3;
+        setBallCount(3);
 
     }
 
@@ -285,7 +294,7 @@ public class WallModel {
      * resetBallCount method resets the ball count back to full capacity, 3.
      */
     public void resetBallCount(){
-        ballCount = 3;
+        setBallCount(3);
     }
 
     /**

@@ -3,6 +3,11 @@ package view;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
 
+/**
+ * PauseMenuView class displays the Pause Menu in game.
+ *
+ * @author Harini Manikandan
+ */
 public class PauseMenuView {
 
     private static final String CONTINUE = "Continue";
@@ -27,13 +32,18 @@ public class PauseMenuView {
     private Font menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);;
 
 
+    /**
+     * PauseMenuScreen Method handles the entire pause menu implementation.
+     * Calls the obscureGameBoard and drawPauseMenu methods.
+     * @param g2d
+     */
     public void PauseMenuScreen(Graphics2D g2d){
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
     }
 
     /**
-     * obscureGameBoard is a private Method that draws the Pause Menu container screen and sets its properties.
+     * obscureGameBoard is a Method that draws the Pause Menu container screen and sets its properties.
      * Draws on top of the existing In-Game Screen.
      * Handles the blending and transparency of the screen.
      * @param g2d
@@ -56,7 +66,7 @@ public class PauseMenuView {
     }
 
     /**
-     * drawPauseMenu is a private Method that draws and renders the fonts on the Pause Menu Screen.
+     * drawPauseMenu is a Method that draws and renders the fonts on the Pause Menu Screen.
      * Draws the CONTINUE, RESTART and EXIT buttons.
      * @param g2d
      */
@@ -114,18 +124,34 @@ public class PauseMenuView {
         g2d.setColor(tmpColor);
     }
 
+    /**
+     * Getter method to get the Continue Button.
+     * @return  returns the Continue Button
+     */
     public Rectangle getContinueButtonRect() {
         return continueButtonRect;
     }
 
+    /**
+     * Getter method to get the Exit Button.
+     * @return  returns the Exit Button
+     */
     public Rectangle getExitButtonRect() {
         return exitButtonRect;
     }
 
+    /**
+     * Getter method to get the Restart Button.
+     * @return  returns the Restart Button
+     */
     public Rectangle getRestartButtonRect() {
         return restartButtonRect;
     }
 
+    /**
+     * Setter Method to set the string length.
+     * @param strLen    String length
+     */
     public void setStrLen(int strLen) {
         this.strLen = strLen;
     }

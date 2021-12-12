@@ -11,6 +11,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * LeaderboardView class displays the top 5 scores.
+ *
+ * @author Harini Manikandan
+ */
 public class LeaderboardView extends JPanel implements ActionListener {
 
     private static final String BACK_BUTTON = "src/main/resources/ButtonBg.png";
@@ -21,6 +26,10 @@ public class LeaderboardView extends JPanel implements ActionListener {
     private JButton backButton;
     private ScoresTableView scoresTable;
 
+    /**
+     * LeaderboardView is a Parameterized constructor that adds the Back button and the Scores Table.
+     * @param owner     GameFrameController object
+     */
     public LeaderboardView(GameFrameController owner) {
         this.owner = owner;
 
