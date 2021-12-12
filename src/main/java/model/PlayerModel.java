@@ -100,7 +100,7 @@ public class PlayerModel extends PlayerController {
     }
 
     /**
-     * movRight is a Method that handles the movement of the player to the right.
+     * moveRight is a Method that handles the movement of the player to the right.
      * Sets the move amount and direction when move right.
      */
     public void moveRight(){
@@ -131,18 +131,34 @@ public class PlayerModel extends PlayerController {
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }
 
+    /**
+     * Setter Method for the INNER_COLOR of the player. Encapsulation
+     * @param innerColor        inner color of the player
+     */
     public static void setInnerColor(Color innerColor) {
         PlayerModel.INNER_COLOR = innerColor;
     }
 
+    /**
+     * Getter Method to get the inner color of player.
+     * @return      returns the inner color of the player
+     */
     public Color getInnerColor() {
         return INNER_COLOR;
     }
 
+    /**
+     * Getter Method to get the player movement amount.
+     * @return      returns the player movement amount
+     */
     public int getDefMoveAmount() {
         return DEF_MOVE_AMOUNT;
     }
 
+    /**
+     * Setter Method to set the player movement amount.
+     * @param defMoveAmount     movement amount of player
+     */
     public static void setDefMoveAmount(int defMoveAmount) {
         PlayerModel.DEF_MOVE_AMOUNT = defMoveAmount;
     }

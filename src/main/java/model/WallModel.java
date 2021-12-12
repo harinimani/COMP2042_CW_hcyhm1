@@ -1,6 +1,6 @@
 /*
  *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
+ *   Copyright (C) 2017  Harini Manikandan
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -49,8 +49,8 @@ public class WallModel {
 
     /**
      * WallModel is a Parameterized Constructor that hat handles the initial implementation of the wall.
-     * @param drawArea
-     * @param ballPos
+     * @param drawArea      rectangle game area
+     * @param ballPos       initial location of ball.
      */
     public WallModel(Rectangle drawArea, Point ballPos){
 
@@ -168,14 +168,26 @@ public class WallModel {
         return ((p.getX() < area.getX()) ||(p.getX() > (area.getX() + area.getWidth())));
     }
 
+    /**
+     * Getter method for getting the brick count.
+     * @return  returns the number of bricks from brickCount variable.
+     */
     public int getBrickCount(){
         return brickCount;
     }
 
+    /**
+     * Getter method for getting the number of balls left.
+     * @return  returns the number of balls from ballCount.
+     */
     public int getBallCount(){
         return ballCount;
     }
 
+    /**
+     * Getter method for finding if ball lost or not.
+     * @return  returns a boolean value of ballLost variable.
+     */
     public boolean isBallLost(){
         return ballLost;
     }
@@ -195,6 +207,11 @@ public class WallModel {
         ballLost = false;
     }
 
+    /**
+     * wallReset method resets the wall.
+     * Repairs all bricks.
+     * Resets ball and brick count.
+     */
     public void wallReset(){
         for(BrickController b : bricks)
             b.repair();
@@ -203,44 +220,86 @@ public class WallModel {
 
     }
 
+    /**
+     * ballEnd() method checks if the all the balls have been used up.
+     * @return  returns a boolean value based on the ballCount value.
+     *          <code>true</code> if the ballCount is zero.
+     *          <code>false</code> otherwise.
+     */
     public boolean ballEnd(){
         return ballCount == 0;
     }
 
+    /**
+     * getBricks() method returns the brick.
+     * @return      returns the bricks.
+     */
     public BrickController[] getBricks() {
         return bricks;
     }
 
+    /**
+     * setBricks() method sets the bricks.
+     * @param bricks    the bricks
+     */
     public void setBricks(BrickController[] bricks) {
         this.bricks = bricks;
     }
 
+    /**
+     * Setter method to set the brick count on the wall.
+     * @param brickCount    the number of bricks.
+     */
     public void setBrickCount(int brickCount) {
         this.brickCount = brickCount;
     }
 
+    /**
+     * isDone() method checks if the all the bricks have been broken.
+     * @return  returns a boolean value based on the brickCount value.
+     *          <code>true</code> if the ballCount is zero.
+     *          <code>false</code> otherwise.
+     */
     public boolean isDone(){
         return brickCount == 0;
     }
 
 
-
+    /**
+     * Setter method to set the speed of the ball in the x-axis direction.
+     * @param s     speed value in x-axis direction
+     */
     public void setBallXSpeed(int s){
         ball.setXSpeed(s);
     }
 
+    /**
+     * Setter method to set the speed of the ball in the y-axis direction.
+     * @param s     speed value in y-axis direction
+     */
     public void setBallYSpeed(int s){
         ball.setYSpeed(s);
     }
 
+    /**
+     * resetBallCount method resets the ball count back to full capacity, 3.
+     */
     public void resetBallCount(){
         ballCount = 3;
     }
 
+    /**
+     * Getter method for the brickBroken variable.
+     * @return  returns total number of bricks broken.
+     */
     public static int getBrickBroken() {
         return brickBroken;
     }
 
+    /**
+     * Setter method for the brickBroken variable.
+     * @param brickBroken   total number of bricks broken.
+     */
     public static void setBrickBroken(int brickBroken) {
         WallModel.brickBroken = brickBroken;
     }

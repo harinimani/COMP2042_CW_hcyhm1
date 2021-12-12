@@ -22,8 +22,6 @@ abstract public class BrickController {
     public static final int RIGHT_IMPACT = 400;
 
 
-
-
     private static Random rnd;
 
     private String name;
@@ -57,13 +55,15 @@ abstract public class BrickController {
         brickFace = makeBrickFace(pos,size);
         this.border = border;
         this.inner = inner;
-        this.fullStrength = this.strength = strength;
+        //this.fullStrength = this.strength = strength;
+        this.setStrength(strength);
+        this.fullStrength = getStrength();
 
     }
 
     /**
      * makeBall is an Abstract Method which creates the ball.
-     * This method will later be implemented by the Cement, Clay and Steel brick classes or any other extensions the programmer wishes to add
+     * This method will later be implemented by the child brick classes or any other extensions the programmer wishes to add
      * @param pos       the position/location of the brick.
      * @param size      size of the brick.
      * @return          returns the brick.
@@ -73,7 +73,7 @@ abstract public class BrickController {
     /**
      * setImpact Method is responsible for letting know if an impact has occurred.
      * If brick is broken, will return false. Denoting no impact made.
-     * Else, will run the impact method and after impact, return the if brick broken of not.
+     * Else, will run the impact method and after impact, return the if brick broken or not.
      * @param point     point of impact.
      * @param dir       direction of impact.
      * @return          returns a boolean value to state if brick is broken or not.
@@ -150,7 +150,8 @@ abstract public class BrickController {
      */
     public void repair() {
         broken = false;
-        strength = fullStrength;
+        //strength = fullStrength;
+        setStrength(fullStrength);
     }
 
     /**
@@ -158,11 +159,28 @@ abstract public class BrickController {
      * Also responsible for deducting the strength of a brick when an impact has occurred.
      */
     public void impact(){
-        strength--;
-        broken = (strength == 0);
+        //strength--;
+        setStrength(getStrength()-1);
+        //broken = (strength == 0);
+        broken = (getStrength() == 0);
     }
 
+    /**
+     * Getter method for the strength variable. Encapsulation
+     * @return      returns the strength value of the ball
+     */
+    public int getStrength() {
+        return strength;
+    }
 
+    /**
+     * Setter method for the strength variable. Encapsulation
+     * Sets the value of the private variable strength
+     * @param strength      strength value of brick
+     */
+    public void setStrength(int strength) {
+        this.strength = strength;
+    }
 
 }
 

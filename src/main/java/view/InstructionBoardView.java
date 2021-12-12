@@ -1,6 +1,6 @@
 package view;
 
-import model.GameFrameModel;
+import controller.GameFrameController;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,12 +19,12 @@ public class InstructionBoardView extends JPanel implements ActionListener {
 
     private Image backgroundImage;
     private Image buttonBg;
-    private GameFrameModel owner;
+    private GameFrameController owner;
     private JButton backButton;
     private ActionListener l;
     private BufferedReader reader;
 
-    public InstructionBoardView(GameFrameModel owner) {
+    public InstructionBoardView(GameFrameController owner) {
         this.owner = owner;
 
         GridBagConstraints c = new GridBagConstraints();
@@ -69,7 +69,7 @@ public class InstructionBoardView extends JPanel implements ActionListener {
         backButton.setVerticalTextPosition(JButton.CENTER);
         backButton.setIcon(imageIcon);
         add(backButton,c);
-        backButton.addActionListener(e -> owner.enableHomemenuFromInfo());
+        backButton.addActionListener(e -> owner.enableHomeMenuFromInfo());
     }
 
 

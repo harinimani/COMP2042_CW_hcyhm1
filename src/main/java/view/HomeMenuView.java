@@ -17,7 +17,7 @@
  */
 package view;
 
-import model.GameFrameModel;
+import controller.GameFrameController;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -41,14 +41,14 @@ public class HomeMenuView extends JPanel implements ActionListener {
     private static final String HOME_MENU_BG = "src/main/resources/HomeMenuBg.png";
 
     private Image backgroundImage;
-    private GameFrameModel owner;
+    private GameFrameController owner;
     private JButton start;
     private JButton info;
     private JButton exit;
     private JButton scores;
 
 
-    public HomeMenuView(GameFrameModel owner) {
+    public HomeMenuView(GameFrameController owner) {
         this.owner = owner;
 
         this.setLayout(new BorderLayout());

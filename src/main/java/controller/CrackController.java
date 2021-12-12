@@ -34,8 +34,8 @@ public class CrackController {
      * Sets the depth of the crack.
      * Sets the crack steps.
      *
-     * @param crackDepth
-     * @param steps
+     * @param crackDepth        the depth of the crack
+     * @param steps             the crack steps
      */
     public CrackController(BrickController brickController, int crackDepth, int steps) {
         this.brickController = brickController;
@@ -50,7 +50,7 @@ public class CrackController {
     /**
      * draw Method is responsible for drawing out the crack.
      *
-     * @return
+     * @return      returns the crack
      */
     public GeneralPath draw() {
 
@@ -113,8 +113,8 @@ public class CrackController {
     /**
      * makeCrack Method is responsible for making a randomly generated path from the start point to the end point.
      *
-     * @param start
-     * @param end
+     * @param start     start point of crack
+     * @param end       end point of crack
      */
     protected void makeCrack(Point start, Point end) {
 
@@ -148,9 +148,10 @@ public class CrackController {
     }
 
     /**
-     * randomInBounds is a Private Method that is responsible for returning a random number between the bound value and the negative bound value.
+     * randomInBounds is a Private Method that is responsible for returning a random number
+     * between the bound value and the negative bound value.
      *
-     * @param bound the bound value.
+     * @param bound     the bound value.
      * @return returns a random integer value between the bound value and the negative bound value.
      */
     private int randomInBounds(int bound) {
@@ -158,6 +159,13 @@ public class CrackController {
         return BrickController.getRnd().nextInt(n) - bound;
     }
 
+    /**
+     * inMiddle is a Private Method responsible for checking if in the middle of the brick.
+     * @param i             integer checking
+     * @param steps         crack steps
+     * @param divisions     divisions of brick
+     * @return              returns a boolean value to check if in Middle or not.
+     */
     private boolean inMiddle(int i, int steps, int divisions) {
         int low = (steps / divisions);
         int up = low * (divisions - 1);
@@ -165,14 +173,27 @@ public class CrackController {
         return (i > low) && (i < up);
     }
 
+    /**
+     * jump is a Private Method.
+     * If getRnd() is greater than probability return a random interger value
+     * Else do nothing.
+     * @param bound         brick bounds
+     * @param probability   brick probability
+     * @return              returns the value from the method randomInBounds.
+     */
     private int jumps(int bound, double probability) {
-
         if (BrickController.getRnd().nextDouble() > probability)
             return randomInBounds(bound);
         return 0;
-
     }
 
+    /**
+     * makeRandomPoint is a Private method that returns a random point.
+     * @param from          the start point
+     * @param to            the end point
+     * @param direction     the direction
+     * @return              sets the location
+     */
     private Point makeRandomPoint(Point from, Point to, int direction) {
 
         Point out = new Point();

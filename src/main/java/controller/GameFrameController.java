@@ -1,6 +1,6 @@
 /*
  *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
+ *   Copyright (C) 2021  Harini Manikandan
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package model;
+package controller;
 
 import view.GameBoardView;
 import view.HomeMenuView;
@@ -29,9 +29,9 @@ import java.awt.event.WindowFocusListener;
 
 
 /**
- * GameFrameModel is the class responsible for the implementation of the Game Frame window.
+ * GameFrameController is the class responsible for the implementation of the Game Frame window.
  */
-public class GameFrameModel extends JFrame implements WindowFocusListener {
+public class GameFrameController extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
 
@@ -45,7 +45,7 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
     /**
      * GameFrameModel is a Default Constructor that adds the HomeMenu page to the Game frame.
      */
-    public GameFrameModel(){
+    public GameFrameController(){
         super();
 
         gaming = false;
@@ -53,10 +53,8 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
         this.setLayout(new BorderLayout());
 
         gameBoard = new GameBoardView(this);
-
         leaderboard = new LeaderboardView(this);
         infoboard = new InstructionBoardView(this);
-
         homeMenu = new HomeMenuView(this);
 
         this.add(homeMenu,BorderLayout.CENTER);
@@ -118,7 +116,7 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     }
 
-    public void enableHomeMenuboard(){
+    public void enableHomeMenuFromScores(){
         this.dispose();
         this.remove(leaderboard);  //removes the homeMenu from the Game frame
         //this.add(gameBoard,BorderLayout.CENTER);    //adds the in-game screen to the game frame.
@@ -130,7 +128,7 @@ public class GameFrameModel extends JFrame implements WindowFocusListener {
 
     }
 
-    public void enableHomemenuFromInfo(){
+    public void enableHomeMenuFromInfo(){
         this.dispose();
         this.remove(infoboard);  //removes the homeMenu from the Game frame
         //this.add(gameBoard,BorderLayout.CENTER);    //adds the in-game screen to the game frame.

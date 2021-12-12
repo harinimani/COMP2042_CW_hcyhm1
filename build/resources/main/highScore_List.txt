@@ -1,6 +1,6 @@
 Name,Bricks,Min,Sec
 eve,17,0,57
 sam,14,1,18
+trial,8,0,37
 har,7,1,15
-aang,4,1,25
-mal,3,0,35
+pep,5,1,21

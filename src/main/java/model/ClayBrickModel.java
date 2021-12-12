@@ -30,7 +30,7 @@ public class ClayBrickModel extends BrickController {
 
     /**
      * makeBrickFace overrides the makeBrickFace in the parent class.
-     * This method creates the clay brick.
+     * This method creates the Clay brick.
      * @param pos   the position/location of the brick.
      * @param size  size of the brick.
      * @return      returns the brick.
@@ -40,6 +40,14 @@ public class ClayBrickModel extends BrickController {
         return new Rectangle(pos,size);
     }
 
+    /**
+     * setImpact is an overridden method from the parent class.
+     * Responsible for knowing if an impact has occurred or not.
+     * Calls the BrickController's impact() method.
+     * @param point point of impact.
+     * @param dir   direction of impact.
+     * @return      returns a boolean value stating if an impact has occurred or not.
+     */
     @Override
     public boolean setImpact(Point2D point, int dir) {
         if(super.isBroken())

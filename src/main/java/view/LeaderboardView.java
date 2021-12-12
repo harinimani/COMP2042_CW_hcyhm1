@@ -1,6 +1,6 @@
 package view;
 
-import model.GameFrameModel;
+import controller.GameFrameController;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -8,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
@@ -18,11 +17,11 @@ public class LeaderboardView extends JPanel implements ActionListener {
     private static final String LEADERBOARD_BG = "src/main/resources/LEADERBOARD.png";
 
     private Image backgroundImage;
-    private GameFrameModel owner;
+    private GameFrameController owner;
     private JButton backButton;
     private ScoresTableView scoresTable;
 
-    public LeaderboardView(GameFrameModel owner) {
+    public LeaderboardView(GameFrameController owner) {
         this.owner = owner;
 
         GridBagConstraints c = new GridBagConstraints();
@@ -53,7 +52,7 @@ public class LeaderboardView extends JPanel implements ActionListener {
         backButton.setVerticalTextPosition(JButton.CENTER);
         backButton.setIcon(buttonBg);
         add(backButton,c);
-        backButton.addActionListener(e -> owner.enableHomeMenuboard());
+        backButton.addActionListener(e -> owner.enableHomeMenuFromScores());
 
         //Scores Table
         scoresTable = new ScoresTableView();

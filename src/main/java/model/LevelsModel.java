@@ -4,6 +4,11 @@ import controller.BrickController;
 
 import java.awt.*;
 
+/**
+ * LevelsModel Class handles all the implementation based on the different levels in the game.
+ *
+ * @author Harini Manikandan
+ */
 public class LevelsModel {
 
     private static final int LEVELS_COUNT = 7;
@@ -28,11 +33,11 @@ public class LevelsModel {
 
     /**
      * makeSingleTypeLevel is a Private Method implements a wall with only 1 type of brick.
-     * @param drawArea
-     * @param brickCnt
-     * @param lineCnt
-     * @param brickSizeRatio
-     * @param type
+     * @param drawArea          rectangle game area
+     * @param brickCnt          number of bricks
+     * @param lineCnt           number of rows on the wall
+     * @param brickSizeRatio    brick size scale
+     * @param type              type of brick
      * @return          returns a single brick type wall.
      */
     private BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
@@ -78,12 +83,12 @@ public class LevelsModel {
     /**
      * makeChessBoard level is a Private Method implements a wall with multiple types of brick.
      * Creates a Chessboard like wall.
-     * @param drawArea
-     * @param brickCnt
-     * @param lineCnt
-     * @param brickSizeRatio
-     * @param typeA
-     * @param typeB
+     * @param drawArea          rectangle game area
+     * @param brickCnt          number of bricks
+     * @param lineCnt           number of rows on the wall
+     * @param brickSizeRatio    brick size scale
+     * @param typeA             type of first brick
+     * @param typeB             type of second brick
      * @return          returns a Chessboard wall.
      */
     private BrickController[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
@@ -131,6 +136,14 @@ public class LevelsModel {
         return tmp;
     }
 
+    /**
+     * makeLevels is a Private Method that help set the different levels in the game.
+     * @param drawArea              rectangle game area
+     * @param brickCount            number of bricks
+     * @param lineCount             number of rows of brick on wall
+     * @param brickDimensionRatio   brick size scale
+     * @return                      returns levels
+     */
     private BrickController[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio){
         BrickController[][] tmp = new BrickController[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY);
@@ -143,6 +156,13 @@ public class LevelsModel {
         return tmp;
     }
 
+    /**
+     * makeBrick is a Private Method that creates the respective brick based on the brick type.
+     * @param point     position of brick
+     * @param size      size of brick
+     * @param type      type of brick
+     * @return          returns a brick
+     */
     private BrickController makeBrick(Point point, Dimension size, int type){
         BrickController out;
         switch(type){
@@ -170,6 +190,9 @@ public class LevelsModel {
         return  out;
     }
 
+    /**
+     * If there exits another level, nextLevel() method initializes the next level.
+     */
     public void nextLevel(){
         if(hasLevel()){
             wall.setBricks(levels[level++]);
@@ -177,11 +200,19 @@ public class LevelsModel {
         }
     }
 
+    /**
+     * hasLevel() checks if there is a next level.
+     * @return      returns a boolean value denoting if another level exists or not
+     */
     public boolean hasLevel(){
         return level < levels.length;
     }
 
 
+    /**
+     * getLevel() Method is a Getter method that gets the current level. Encapsulation
+     * @return      returns the game level
+     */
     public int getLevel() {
         return level;
     }

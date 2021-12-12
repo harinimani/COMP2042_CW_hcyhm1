@@ -8,19 +8,35 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/**
+ * ScoreController class handles the scores implementation.
+ * Reads and Writes to a Text file.
+ * Sorts the scores.
+ * Stores the top 5 scores.
+ *
+ * @author Harini Manikandan
+ */
 public class ScoreController {
 
     private static final String FILE = "src/main/resources/highScore_List.txt";
     BufferedReader reader = null;
+
     private String score[][] = new String[10][10];
     private String line = "";
     private String name, temp1,temp2,temp3,temp4;
+
     private static int i;
     private static int length;
-    //private WallModel wall;
-    private GameTimeController gameTime;
     private static int limit;
 
+    private GameTimeController gameTime;
+
+
+    /**
+     * ScoreController() is a Default Constructor.
+     * Initializes the length of the scores list.
+     * Reads the text file.
+     */
     public ScoreController() {
         //this.wall = wall;
         setLength(0);
@@ -30,6 +46,9 @@ public class ScoreController {
     }
 
 
+    /**
+     * readFile() is Method that reads the text file and stores the values to local array.
+     */
     public void readFile(){
 
         try {
@@ -63,6 +82,9 @@ public class ScoreController {
 
     }//end of readFile
 
+    /**
+     * writeFile is a Method that writes the local array value into the text file.
+     */
     public void writeFile(){
         try {
             FileWriter fileWriter = new FileWriter(FILE);
@@ -78,6 +100,14 @@ public class ScoreController {
         }
     }//end of writeFile
 
+    /**
+     * sortScores() Method, sorts the scores in descending order of:
+     * <ul>
+     * <li>Total number of Bricks Broken
+     * <li>Minutes taken
+     * <li>Seconds taken
+     * </ul>
+     */
     public void sortScores() {
         limit=0;
         if(getLength()<6)
@@ -204,18 +234,30 @@ public class ScoreController {
         writeFile();
     }//end of sortScores method
 
+    /**
+     * playerNameDialogBox is a Method that launches a JOptionPane to ask the user to input their name.
+     * Launches when user sets a new high-score.
+     * @return      returns player name entered by user.
+     */
     public String playerNameDialogBox(){
         name = JOptionPane.showInputDialog(null, "You set a new High-score! Enter your name:",
                 "High-Score Player", JOptionPane.INFORMATION_MESSAGE);
-        //System.out.println(name);
-        //name =
         return name;
     }
 
+    /**
+     * Getter method to access the value of the private length variable.
+     * @return      returns the length of the scores list.
+     */
     public int getLength(){
         return length;
     }
 
+    /**
+     * Setter method to set the length of the scores list.
+     * Ensures length value does not exceed past 6.
+     * @param length    returns the length variable value.
+     */
     public void setLength(int length) {
         //this.length = length;
         if(length>=6)
