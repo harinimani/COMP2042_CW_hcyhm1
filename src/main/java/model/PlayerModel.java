@@ -61,12 +61,12 @@ public class PlayerModel extends PlayerController {
     }
 
     /**
-     * makePlayer is a Private Method that creates the player of rectangular shape.
+     * makePlayer is a Method that creates the player of rectangular shape.
      * @param width     the width of the player.
      * @param height    the height of the player.
      * @return          returns a Rectangle player based on the dimensions specified.
      */
-    private Rectangle makePlayer(int width, int height){
+    public Rectangle makePlayer(int width, int height){
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));
     }

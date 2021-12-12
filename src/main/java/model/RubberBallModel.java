@@ -42,6 +42,7 @@ public class RubberBallModel extends BallController {
      * @param center    the initial location of the ball.
      */
     public RubberBallModel(Point2D center){
+        //runs the Parent class's, BallController's constructor.
         super(center,DEF_RADIUS,DEF_RADIUS,DEF_INNER_COLOR,DEF_BORDER_COLOR);
     }
 

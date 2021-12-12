@@ -59,7 +59,7 @@ public class WallModel {
 
         //number of balls
         setBallCount(3);
-        ballLost = false;
+        setBallLost(false);//ballLost = false;
 
         rnd = new Random();
 
@@ -129,7 +129,7 @@ public class WallModel {
         }
         else if(ball.getPosition().getY() > area.getY() + area.getHeight()){
             setBallCount(getBallCount()-1);
-            ballLost = true;
+            setBallLost(true);//ballLost = true;
         }
     }
 
@@ -201,6 +201,14 @@ public class WallModel {
         return ballLost;
     }
 
+    /**
+     * Setter method for finding if ball lost or not.
+     * @param ballLost  ball lost or not variable.
+     */
+    public void setBallLost(boolean ballLost) {
+        this.ballLost = ballLost;
+    }
+
     public void ballReset(){
         player.playerMoveTo(startPoint);
         ball.moveTo(startPoint);
@@ -213,7 +221,7 @@ public class WallModel {
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);
-        ballLost = false;
+        setBallLost(false);//ballLost = false;
     }
 
     /**

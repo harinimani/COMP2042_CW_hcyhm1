@@ -77,18 +77,6 @@ public class TimesaverBrickModel extends BrickController {
         }
     }
 
-    /*public void impact(){
-        super.impact();
-        if(displayTime.getSeconds() >= 5)
-            displayTime.setSeconds(displayTime.getSeconds()-5);
-        else{
-            if(displayTime.getMinutes()>0){
-                displayTime.setMinutes(displayTime.getMinutes() - 1);
-                displayTime.setSeconds((displayTime.getSeconds()+60) - 5);
-            }
-        }
-    }*/
-
     /**
      * getBrick implements the Abstract method from the parent class.
      * @return      returns the Time-Saver Brick

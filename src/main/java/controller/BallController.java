@@ -44,13 +44,14 @@ abstract public class BallController {
         left = new Point2D.Double();
         right = new Point2D.Double();
 
+        //Angle of movement of the Ball
         up.setLocation(center.getX(),center.getY()-(radiusB / 2));
         down.setLocation(center.getX(),center.getY()+(radiusB / 2));
 
         left.setLocation(center.getX()-(radiusA /2),center.getY());
         right.setLocation(center.getX()+(radiusA /2),center.getY());
 
-
+        //The shape of the ball and initializes the coordinates
         ballFace = makeBall(center,radiusA,radiusB);
         this.border = border;
         this.inner  = inner;

@@ -67,11 +67,6 @@ public class BonusBrickModel extends BrickController {
         }
     }
 
-    /*public void impact(){
-        super.impact();
-        WallModel.setBrickBroken(WallModel.getBrickBroken() + 3);
-    }*/
-
     /**
      * getBrick implements the Abstract method from the parent class.
      * @return      returns the Bonus Brick.

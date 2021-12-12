@@ -74,6 +74,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         pauseMenu.setStrLen(0);
         showPauseMenu = false;
 
+        //sets the Pause menu font
         pauseMenuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
 
         this.initialize();
@@ -106,7 +107,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                 wall.ballReset();
                 gameTimer.stop();
             }
-            else if(wall.isDone()){
+            else if(wall.isDone()){         //if level finished; level completed.
                 if(level.hasLevel()){
                     message = "Go to Next Level: Level "+(level.getLevel()+1);
                     message2 ="";
@@ -115,7 +116,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                     wall.wallReset();
                     level.nextLevel();
                 }
-                else{
+                else{      //if all levels completed and no more levels exist.
                     displayTime.setGameIsRunning(false);
                     message = "ALL WALLS DESTROYED";
                     gameTimer.stop();

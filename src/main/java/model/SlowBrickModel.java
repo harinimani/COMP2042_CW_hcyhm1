@@ -87,11 +87,6 @@ public class SlowBrickModel extends BrickController {
         }
     }
 
-    /*public void impact(){
-        super.impact();
-        slowPlayer();
-    }*/
-
     /**
      * getBrick implements the Abstract method from the parent class.
      * @return      returns the Slow brick.
