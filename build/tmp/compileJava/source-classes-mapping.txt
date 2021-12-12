@@ -14,42 +14,42 @@ view/ScoresTableView.java
  view.ScoresTableView
 controller/BrickController.java
  controller.BrickController
-view/PauseMenuView.java
- view.PauseMenuView
-controller/PlayerController.java
- controller.PlayerController
+game/GraphicsMain.java
+ game.GraphicsMain
+view/HomeMenuView.java
+ view.HomeMenuView
+ view.HomeMenuView$1
 model/TimesaverBrickModel.java
  model.TimesaverBrickModel
+view/LeaderboardView.java
+ view.LeaderboardView
+view/InstructionBoardView.java
+ view.InstructionBoardView
+controller/GameTimeController.java
+ controller.GameTimeController
+ controller.GameTimeController$1
+controller/PlayerController.java
+ controller.PlayerController
 controller/ScoreController.java
  controller.ScoreController
+controller/GameFrameController.java
+ controller.GameFrameController
+view/PauseMenuView.java
+ view.PauseMenuView
+model/BonusBrickModel.java
+ model.BonusBrickModel
 model/PlayerModel.java
  model.PlayerModel
+controller/DebugPanelController.java
+ controller.DebugPanelController
 model/WallModel.java
  model.WallModel
 model/LevelsModel.java
  model.LevelsModel
 view/DebugConsoleView.java
  view.DebugConsoleView
-model/BonusBrickModel.java
- model.BonusBrickModel
-controller/GameTimeController.java
- controller.GameTimeController
- controller.GameTimeController$1
 model/SlowBrickModel.java
  model.SlowBrickModel
  model.SlowBrickModel$1
 view/GameBoardView.java
  view.GameBoardView
-controller/DebugPanelController.java
- controller.DebugPanelController
-view/InstructionBoardView.java
- view.InstructionBoardView
-view/HomeMenuView.java
- view.HomeMenuView
- view.HomeMenuView$1
-controller/GameFrameController.java
- controller.GameFrameController
-game/GraphicsMain.java
- game.GraphicsMain
-view/LeaderboardView.java
- view.LeaderboardView

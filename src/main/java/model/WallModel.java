@@ -98,7 +98,7 @@ public class WallModel {
      * move Method calls the move methods in the Player and BallController classes.
      */
     public void move(){
-        player.move();
+        player.playerMove();
         ball.move();
     }
 
@@ -109,7 +109,7 @@ public class WallModel {
      * Implements when ball makes impact with the game frame/border.
      */
     public void findImpacts(){
-        if(player.impact(ball)){
+        if(player.playerImpact(ball)){
             ball.reverseY();
         }
         else if(impactWall()){
@@ -193,7 +193,7 @@ public class WallModel {
     }
 
     public void ballReset(){
-        player.moveTo(startPoint);
+        player.playerMoveTo(startPoint);
         ball.moveTo(startPoint);
         int speedX,speedY;
         do{

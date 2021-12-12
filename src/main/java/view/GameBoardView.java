@@ -28,7 +28,6 @@ import model.WallModel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.font.FontRenderContext;
 
 
 /**
@@ -267,10 +266,10 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
             case KeyEvent.VK_A:
-                wall.player.moveLeft();
+                wall.player.playerMoveLeft();
                 break;
             case KeyEvent.VK_D:
-                wall.player.moveRight();
+                wall.player.playerMoveRight();
                 break;
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
@@ -295,7 +294,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
                     displayTime.setGameIsRunning(false);
                 }
             default:
-                wall.player.stop();
+                wall.player.playerStop();
         }
     }
 
@@ -306,7 +305,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
      */
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-        wall.player.stop();
+        wall.player.playerStop();
     }
 
     /**

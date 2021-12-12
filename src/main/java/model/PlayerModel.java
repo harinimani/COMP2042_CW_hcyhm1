@@ -54,19 +54,19 @@ public class PlayerModel extends PlayerController {
     public PlayerModel(Point ballPoint, int width, int height, Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;
-        playerFace = makeRectangle(width, height);
+        playerFace = makePlayer(width, height);
         min = container.x + (width / 2);
         max = min + container.width - width;
 
     }
 
     /**
-     * makeRectangle is a Private Method that creates the player of rectangular shape.
+     * makePlayer is a Private Method that creates the player of rectangular shape.
      * @param width     the width of the player.
      * @param height    the height of the player.
      * @return          returns a Rectangle player based on the dimensions specified.
      */
-    private Rectangle makeRectangle(int width,int height){
+    private Rectangle makePlayer(int width, int height){
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));
     }
@@ -76,14 +76,14 @@ public class PlayerModel extends PlayerController {
      * @param b     passing in the Object/Reference variable of the BallController class. Aggregation relationship.
      * @return      returns a boolean value denoting if an impact has occurred or not.
      */
-    public boolean impact(BallController b){
+    public boolean playerImpact(BallController b){
         return playerFace.contains(b.getPosition()) && playerFace.contains(b.down) ;
     }
 
     /**
-     * move is a Method that implements the movement of the ball and the platform.
+     * playerMove is a Method that implements the movement of the ball and the platform.
      */
-    public void move(){
+    public void playerMove(){
         double x = ballPoint.getX() + moveAmount;
         if(x < min || x > max)
             return;
@@ -92,25 +92,25 @@ public class PlayerModel extends PlayerController {
     }
 
     /**
-     * moveLeft is a Method that handles the movement of the player to the left.
+     * playerMoveLeft is a Method that handles the movement of the player to the left.
      * Sets the move amount and direction when move left.
      */
-    public void moveLeft(){
+    public void playerMoveLeft(){
         moveAmount = -DEF_MOVE_AMOUNT;
     }
 
     /**
-     * moveRight is a Method that handles the movement of the player to the right.
+     * playerMoveRight is a Method that handles the movement of the player to the right.
      * Sets the move amount and direction when move right.
      */
-    public void moveRight(){
+    public void playerMoveRight(){
         moveAmount = DEF_MOVE_AMOUNT;
     }
 
     /**
-     * stop if a Method sets the movement amount to zero to stop the player movement.
+     * playerStop if a Method sets the movement amount to zero to stop the player movement.
      */
-    public void stop(){
+    public void playerStop(){
         moveAmount = 0;
     }
 
@@ -123,10 +123,10 @@ public class PlayerModel extends PlayerController {
     }
 
     /**
-     * moveTo is a Method that sets the location of the ball and player.
+     * playerMoveTo is a Method that sets the location of the ball and player.
      * @param p
      */
-    public void moveTo(Point p){
+    public void playerMoveTo(Point p){
         ballPoint.setLocation(p);
         playerFace.setLocation(ballPoint.x - (int)playerFace.getWidth()/2,ballPoint.y);
     }

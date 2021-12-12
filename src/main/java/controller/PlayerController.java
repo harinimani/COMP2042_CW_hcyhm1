@@ -8,10 +8,10 @@ import java.awt.*;
  * @author Harini Manikandan
  */
 abstract public class PlayerController {
-    public abstract boolean impact(BallController b);
-    public abstract void move();
-    public abstract void moveLeft();
-    public abstract void moveRight();
-    public abstract void stop();
-    public abstract void moveTo(Point p);
+    public abstract boolean playerImpact(BallController b);
+    public abstract void playerMove();
+    public abstract void playerMoveLeft();
+    public abstract void playerMoveRight();
+    public abstract void playerStop();
+    public abstract void playerMoveTo(Point p);
 }
