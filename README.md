@@ -39,7 +39,7 @@ The Controller acts on both the model and view. Controllers inform the model wha
 **2. Single Responsibility Principle**
   
   Single Responsibility Principle states that an object should only have one responsibility. Hence classes with multiple functionalities do not withhold to this principle.
-  Hence CrackController from BrickController class, PauseMenu from GameBoardView and LevelsModel from WallController, have all been made as a separate class to withhold the Single Responsibility Principle.
+  Hence CrackController from BrickController class, PauseMenuView from GameBoardView and LevelsModel from WallController, have all been made as a separate class to withhold the Single Responsibility Principle.
   
 
 **3. Open-Closed Principle**
