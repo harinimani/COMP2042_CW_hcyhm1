@@ -39,9 +39,43 @@ The Controller acts on both the model and view. Controllers inform the model wha
 **2. Single Responsibility Principle**
   
   Single Responsibility Principle states that an object should only have one responsibility. Hence classes with multiple functionalities do not withhold to this principle.
-  One such class is the Crack nested class within the Brick class. The Crack class has be removed as a seperate class to withhold to this principle.
+  Hence CrackController from BrickController class, PauseMenu from GameBoardView and LevelsModel from WallController, have all been made as a separate class to withhold the Single Responsibility Principle.
   
 
 **3. Open-Closed Principle**
   
-  The SOLID design, Open-Closed principle states the software entities must be open for 'extension' but closed for 'modification'.
+ The SOLID design, Open-Closed principle states the software entities must be open for 'extension' but closed for 'modification'. Hence an abstract PlayerController class was created with methods that must be present in future player extensions.
+ 
+**4. Encapsultation**
+ Getter and Setter methods are added in to avoid data violation. Major changes made in the WallController, PlayerModel, BrickController classes.
+ 
+**5. Adding Path Variables**
+ Using Path variables in additional classes for ease of future modifications. Example in the HomeMenuView,LeaderboardView,ScoresTableView
+ 
+**6. Standardize variable and method names** 
+ Renamed methods and variables based on the Oracle Java Variable and Method Naming Convention Documentation. Significant changes made in Player class.
+ 
+**7. JUnit** 
+JUnit test classes added to the WallController,PlayerModel, BonusBrickModel, ClayBrickModel, CementBrickModel, SteelBrickModel, TimesaverBrickModel, LevelsModel.
+ 
+ 
+# Major Additions
+**1. Adding Background Images** 
+Added a Background image for the HomeMenu, Leaderboard, Instruction views, as well as the buttons.
+ 
+**2. HomeMenuView**  
+Significant additons made to HomeMenuView. Converted it to a JFrame and added in the Info and Scores buttons as well. 
+ 
+**3. Instructions View**  
+Added in an Instructions View to display the "How To Play" info to the users. 
+
+**4. Game Timer** 
+Added an in-game timer to keep track of the total time taken the player has taken to complete the game. Used in calculating the scores as well. 
+ 
+**5. Scores and Leaderboard** 
+A ScoreController, ScoreTableView and LeaderBoardView classes were added in to store and display the top 5 scores in a JTable format. Displays the player name, total number of bricks broken, minutes taken and seconds taken.
+
+**6. Additional Levels** 
+Three additional levels were added in. Introduce three new bricks, Bonus, TimeSaver and Slow bricks. Bonus brick increases total bricks broken by 4 on impact. TimeSaver brick deducts 5 seconds from the player's time taken. Slow brick slows the in-game player's movement for 5 seconds.
+ 
+ 
