@@ -55,7 +55,6 @@ abstract public class BrickController {
         brickFace = makeBrickFace(pos,size);
         this.border = border;
         this.inner = inner;
-        //this.fullStrength = this.strength = strength;
         this.setStrength(strength);
         this.fullStrength = getStrength();
 
@@ -159,9 +158,7 @@ abstract public class BrickController {
      * Also responsible for deducting the strength of a brick when an impact has occurred.
      */
     public void impact(){
-        //strength--;
         setStrength(getStrength()-1);
-        //broken = (strength == 0);
         broken = (getStrength() == 0);
     }
 

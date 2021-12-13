@@ -10,8 +10,8 @@ model/SlowBrickModel.java
 controller/GameTimeController.java
  controller.GameTimeController
  controller.GameTimeController$1
-controller/GameFrameController.java
- controller.GameFrameController
+view/PauseMenuView.java
+ view.PauseMenuView
 model/ClayBrickModel.java
  model.ClayBrickModel
 view/ScoresTableView.java
@@ -32,24 +32,24 @@ model/RubberBallModel.java
  model.RubberBallModel
 controller/BrickController.java
  controller.BrickController
-view/PauseMenuView.java
- view.PauseMenuView
-view/LeaderboardView.java
- view.LeaderboardView
 view/HomeMenuView.java
  view.HomeMenuView
  view.HomeMenuView$1
 controller/ScoreController.java
  controller.ScoreController
+controller/WallController.java
+ controller.WallController
 controller/DebugPanelController.java
  controller.DebugPanelController
-model/WallModel.java
- model.WallModel
 model/LevelsModel.java
  model.LevelsModel
-model/BonusBrickModel.java
- model.BonusBrickModel
 view/DebugConsoleView.java
  view.DebugConsoleView
+model/BonusBrickModel.java
+ model.BonusBrickModel
 view/GameBoardView.java
  view.GameBoardView
+controller/GameFrameController.java
+ controller.GameFrameController
+view/LeaderboardView.java
+ view.LeaderboardView

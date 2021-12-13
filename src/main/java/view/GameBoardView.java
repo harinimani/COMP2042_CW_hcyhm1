@@ -23,7 +23,7 @@ import controller.GameTimeController;
 import controller.ScoreController;
 import model.LevelsModel;
 import model.PlayerModel;
-import model.WallModel;
+import controller.WallController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -53,7 +53,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
 
     private Font pauseMenuFont;
 
-    private WallModel wall;
+    private WallController wall;
     private DebugConsoleView debugConsole;
     private PauseMenuView pauseMenu;
     private LevelsModel level;
@@ -80,7 +80,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
         this.initialize();
         message = "";
         message2 = "";
-        wall = new WallModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),new Point(300,430));
+        wall = new WallController(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),new Point(300,430));
         level = new LevelsModel(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,wall);
 
         displayTime = new GameTimeController();
@@ -95,7 +95,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             wall.findImpacts();
             displayTime.setGameIsRunning(true);
             message = String.format("Bricks: %d  Balls: %d",wall.getBrickCount(),wall.getBallCount());
-            message2 = String.format("Total Bricks Broken: %d  Timer: %02dm:%02ds", WallModel.getBrickBroken() ,displayTime.getMinutes(),displayTime.getSeconds());
+            message2 = String.format("Total Bricks Broken: %d  Timer: %02dm:%02ds", WallController.getBrickBroken() ,displayTime.getMinutes(),displayTime.getSeconds());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
@@ -324,7 +324,7 @@ public class GameBoardView extends JComponent implements KeyListener,MouseListen
             message2 = "";
             wall.ballReset();
             wall.wallReset();
-            WallModel.setBrickBroken(0);
+            WallController.setBrickBroken(0);
             displayTime.resetGameTime();
             showPauseMenu = false;
             repaint();

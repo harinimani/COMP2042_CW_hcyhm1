@@ -15,11 +15,10 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package model;
+package controller;
 
-import controller.BallController;
-import controller.BrickController;
-import controller.CrackController;
+import model.PlayerModel;
+import model.RubberBallModel;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -27,9 +26,9 @@ import java.util.Random;
 
 
 /**
- * WallModel class is responsible for all the implementations on the wall,ball and the impacts.
+ * WallController class is responsible for all the implementations on the wall,ball and the impacts.
  */
-public class WallModel {
+public class WallController {
 
     private Random rnd;
     private Rectangle area;
@@ -53,13 +52,13 @@ public class WallModel {
      * @param drawArea      rectangle game area
      * @param ballPos       initial location of ball.
      */
-    public WallModel(Rectangle drawArea, Point ballPos){
+    public WallController(Rectangle drawArea, Point ballPos){
 
         this.startPoint = new Point(ballPos);
 
         //number of balls
         setBallCount(3);
-        setBallLost(false);//ballLost = false;
+        setBallLost(false);
 
         rnd = new Random();
 
@@ -129,7 +128,7 @@ public class WallModel {
         }
         else if(ball.getPosition().getY() > area.getY() + area.getHeight()){
             setBallCount(getBallCount()-1);
-            setBallLost(true);//ballLost = true;
+            setBallLost(true);
         }
     }
 
@@ -221,7 +220,7 @@ public class WallModel {
         }while(speedY == 0);
 
         ball.setSpeed(speedX,speedY);
-        setBallLost(false);//ballLost = false;
+        setBallLost(false);
     }
 
     /**
@@ -318,7 +317,7 @@ public class WallModel {
      * @param brickBroken   total number of bricks broken.
      */
     public static void setBrickBroken(int brickBroken) {
-        WallModel.brickBroken = brickBroken;
+        WallController.brickBroken = brickBroken;
     }
 
 

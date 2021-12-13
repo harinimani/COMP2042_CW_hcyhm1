@@ -1,7 +1,5 @@
 package controller;
 
-import model.WallModel;
-
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -119,7 +117,7 @@ public class ScoreController {
         if(getLength()<6){
             playerNameDialogBox();
             score[getLength()][0] = name;
-            score[getLength()][1] = String.valueOf(WallModel.getBrickBroken());
+            score[getLength()][1] = String.valueOf(WallController.getBrickBroken());
             score[getLength()][2] = String.valueOf(gameTime.getMinutes());
             score[getLength()][3] = String.valueOf(gameTime.getSeconds());
         }
@@ -127,24 +125,24 @@ public class ScoreController {
             int num = Integer.parseInt(score[getLength()-1][1].trim());
             int min = Integer.parseInt(score[getLength()-1][2].trim());
             int sec = Integer.parseInt(score[getLength()-1][3].trim());
-            if(num < WallModel.getBrickBroken()){
+            if(num < WallController.getBrickBroken()){
                 playerNameDialogBox();
                 score[5][0] = name;
-                score[5][1] = String.valueOf(WallModel.getBrickBroken());
+                score[5][1] = String.valueOf(WallController.getBrickBroken());
                 score[5][2] = String.valueOf(gameTime.getMinutes());
                 score[5][3] = String.valueOf(gameTime.getSeconds());
             }
-            else if(num == WallModel.getBrickBroken() && min > gameTime.getMinutes()){
+            else if(num == WallController.getBrickBroken() && min > gameTime.getMinutes()){
                 playerNameDialogBox();
                 score[5][0] = name;
-                score[5][1] = String.valueOf(WallModel.getBrickBroken());
+                score[5][1] = String.valueOf(WallController.getBrickBroken());
                 score[5][2] = String.valueOf(gameTime.getMinutes());
                 score[5][3] = String.valueOf(gameTime.getSeconds());
             }
-            else if(num == WallModel.getBrickBroken() && min == gameTime.getMinutes() && sec > gameTime.getSeconds()){
+            else if(num == WallController.getBrickBroken() && min == gameTime.getMinutes() && sec > gameTime.getSeconds()){
                 playerNameDialogBox();
                 score[5][0] = name;
-                score[5][1] = String.valueOf(WallModel.getBrickBroken());
+                score[5][1] = String.valueOf(WallController.getBrickBroken());
                 score[5][2] = String.valueOf(gameTime.getMinutes());
                 score[5][3] = String.valueOf(gameTime.getSeconds());
             }

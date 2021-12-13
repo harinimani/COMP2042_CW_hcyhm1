@@ -18,7 +18,6 @@
 package controller;
 
 import model.LevelsModel;
-import model.WallModel;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
@@ -40,7 +39,7 @@ public class DebugPanelController extends JPanel {
     private JSlider ballXSpeed;
     private JSlider ballYSpeed;
 
-    private WallModel wall;
+    private WallController wall;
     private LevelsModel level;
 
     /**
@@ -51,7 +50,7 @@ public class DebugPanelController extends JPanel {
      * Creates a slider for the ball y-axis speed.
      * @param wall      passing in the Object/Reference variable of the WallController class. Aggregation relationship.
      */
-    public DebugPanelController(WallModel wall, LevelsModel level){
+    public DebugPanelController(WallController wall, LevelsModel level){
 
         this.wall = wall;
         this.level = level;

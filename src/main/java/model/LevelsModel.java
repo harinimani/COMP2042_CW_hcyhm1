@@ -1,6 +1,7 @@
 package model;
 
 import controller.BrickController;
+import controller.WallController;
 
 import java.awt.*;
 
@@ -23,9 +24,9 @@ public class LevelsModel {
     private BrickController[][] levels;
     private int level;
 
-    private WallModel wall;
+    private WallController wall;
 
-    public LevelsModel(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, WallModel wall) {
+    public LevelsModel(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, WallController wall) {
         levels = makeLevels(drawArea,brickCount,lineCount,brickDimensionRatio);
         level = 0;
         this.wall = wall;

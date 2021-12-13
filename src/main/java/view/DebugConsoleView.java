@@ -20,7 +20,7 @@ package view;
 import controller.BallController;
 import controller.DebugPanelController;
 import model.LevelsModel;
-import model.WallModel;
+import controller.WallController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +38,7 @@ public class DebugConsoleView extends JDialog implements WindowListener{
     private JFrame owner;
     private DebugPanelController debugPanel;
     private GameBoardView gameBoard;
-    private WallModel wall;
+    private WallController wall;
     private LevelsModel level;
 
 
@@ -48,7 +48,7 @@ public class DebugConsoleView extends JDialog implements WindowListener{
      * @param wall      passing in the Object/Reference variable of the WallController class. Aggregation relationship.
      * @param gameBoard passing in the Object/Reference variable of the GameBoardView class. Aggregation relationship.
      */
-    public DebugConsoleView(JFrame owner, WallModel wall, LevelsModel level,GameBoardView gameBoard){
+    public DebugConsoleView(JFrame owner, WallController wall, LevelsModel level, GameBoardView gameBoard){
 
         this.wall = wall;
         this.owner = owner;

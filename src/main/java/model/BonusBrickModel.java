@@ -1,10 +1,10 @@
 package model;
 
 import controller.BrickController;
+import controller.WallController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.Timer;
 
 /**
  * BonusBrickModel class is SubClass/Child Class of the BrickController class.
@@ -62,7 +62,7 @@ public class BonusBrickModel extends BrickController {
             return false;
         else {
             impact();
-            WallModel.setBrickBroken(WallModel.getBrickBroken() + 3);
+            WallController.setBrickBroken(WallController.getBrickBroken() + 3);
             return true;
         }
     }

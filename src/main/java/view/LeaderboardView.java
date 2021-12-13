@@ -19,7 +19,7 @@ import java.io.IOException;
 public class LeaderboardView extends JPanel implements ActionListener {
 
     private static final String BACK_BUTTON = "src/main/resources/ButtonBg.png";
-    private static final String LEADERBOARD_BG = "src/main/resources/LEADERBOARD.png";
+    private static final String LEADERBOARD_BG = "src/main/resources/LeaderboardBg.png";
 
     private Image backgroundImage;
     private GameFrameController owner;
