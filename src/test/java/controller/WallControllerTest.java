@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,9 +6,9 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class WallModelTest {
+class WallControllerTest {
 
-    WallModel wall = new WallModel(new Rectangle(), new Point());
+    WallController wall = new WallController(new Rectangle(), new Point());
 
     @Test
     void getBrickCount() {
@@ -66,13 +66,14 @@ class WallModelTest {
 
     @Test
     void getBrickBroken() {
-        WallModel.setBrickBroken(10);
-        assertEquals(10, WallModel.getBrickBroken());
+        WallController.setBrickBroken(10);
+        assertEquals(10, WallController.getBrickBroken());
     }
 
     @Test
     void setBrickBroken() {
-        WallModel.setBrickBroken(10);
-        assertEquals(10, WallModel.getBrickBroken());
+        WallController.setBrickBroken(10);
+        assertEquals(10, WallController.getBrickBroken());
     }
+
 }

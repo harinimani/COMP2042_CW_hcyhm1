@@ -49,6 +49,8 @@ public class HomeMenuView extends JPanel implements ActionListener {
     private JButton exit;
     private JButton scores;
 
+    GridBagConstraints gridBagConstraints = new GridBagConstraints();
+
 
     /**
      * HomeMenuView is a Parameterized constructor that initializes the home screen.
@@ -58,7 +60,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
         this.owner = owner;
 
         this.setLayout(new BorderLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        //GridBagConstraints c = new GridBagConstraints();
         ImageIcon startIcon = new ImageIcon(new ImageIcon(START_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         ImageIcon infoIcon = new ImageIcon(new ImageIcon(INFO_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
         ImageIcon exitIcon = new ImageIcon(new ImageIcon(EXIT_BUTTON_BG).getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT));
@@ -75,68 +77,94 @@ public class HomeMenuView extends JPanel implements ActionListener {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
         setLayout(new GridBagLayout());
 
-        //GBConstraints = new GridBagConstraints();
+        gridBagConstraints.insets = new Insets(5,5,5,5);
+        gridBagConstraints.weightx = 0.5;
+        gridBagConstraints.weighty = 0.5;
+        startButton(startIcon);
+        infoButton(infoIcon);
+        exitButton(exitIcon);
+        scoresButton(scoresIcon);
 
-        //Start Button
-        setMyConstraints(c,0,2,20,25,GridBagConstraints.LAST_LINE_START);
-        c.insets = new Insets(5,5,5,5);
-        c.weightx = 0.5;
-        c.weighty = 0.5;
+    }
+
+    /**
+     * startButton method creates the start button in the HomeMenu.
+     * @param startButtonBg     start button background image
+     */
+    public void startButton(ImageIcon startButtonBg){
+        setMyConstraints(gridBagConstraints,0,2,20,25,GridBagConstraints.LAST_LINE_START);
         start.setPreferredSize(new Dimension(104, 25));
         start.setFont(new Font("Arial", Font.BOLD, 25));
         start.setForeground(Color.WHITE);
         start.setFocusPainted(false);
         start.setHorizontalTextPosition(JButton.CENTER);
         start.setVerticalTextPosition(JButton.CENTER);
-        start.setIcon(startIcon);
-        add(start,c);
+        start.setIcon(startButtonBg);
+        add(start, gridBagConstraints);
         start.addActionListener(e -> owner.enableGameBoard());
+    }
 
-        //Info Button
-        setMyConstraints(c,1,2,25,25,GridBagConstraints.PAGE_END);
+
+    /**
+     * infoButton method creates the info button in the HomeMenu.
+     * @param infoButtonBg  info button background image.
+     */
+    public void infoButton(ImageIcon infoButtonBg){
+        setMyConstraints(gridBagConstraints,0,2,20,25,GridBagConstraints.LAST_LINE_START);
+        setMyConstraints(gridBagConstraints,1,2,25,25,GridBagConstraints.PAGE_END);
         info.setPreferredSize(new Dimension(100, 25));
         info.setFont(new Font("Arial", Font.BOLD, 28));
         info.setForeground(Color.WHITE);
         info.setFocusPainted(false);
         info.setHorizontalTextPosition(JButton.CENTER);
         info.setVerticalTextPosition(JButton.CENTER);
-        info.setIcon(infoIcon);
-        add(info,c);
+        info.setIcon(infoButtonBg);
+        add(info, gridBagConstraints);
         info.addActionListener(e -> owner.enableInfoBoard());
+    }
 
-
-        //Exit Button
-        setMyConstraints(c,2,2,25,25,GridBagConstraints.LAST_LINE_END);
+    /**
+     * exitButton method creates the exit button in the HomeMenu.
+     * @param exitButtonBg  exit button background image.
+     */
+    public void exitButton(ImageIcon exitButtonBg){
+        setMyConstraints(gridBagConstraints,0,2,20,25,GridBagConstraints.LAST_LINE_START);
+        setMyConstraints(gridBagConstraints,2,2,25,25,GridBagConstraints.LAST_LINE_END);
         exit.setPreferredSize(new Dimension(100, 25));
         exit.setFont(new Font("Arial", Font.BOLD, 28));
         exit.setForeground(Color.WHITE);
         exit.setFocusPainted(false);
         exit.setHorizontalTextPosition(JButton.CENTER);
         exit.setVerticalTextPosition(JButton.CENTER);
-        exit.setIcon(exitIcon);
-        add(exit,c);
+        exit.setIcon(exitButtonBg);
+        add(exit, gridBagConstraints);
         exit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Goodbye " + System.getProperty("user.name"));
                 System.exit(0);
             }
         });
+    }
 
-
-        //Leaderboard button
-        setMyConstraints(c,3,2,25,25,GridBagConstraints.LAST_LINE_END);
+    /**
+     * scoresButton method creates the scores button in the HomeMenu.
+     * @param scoresButtonBg    scores button background image.
+     */
+    public void scoresButton(ImageIcon scoresButtonBg){
+        setMyConstraints(gridBagConstraints,0,2,20,25,GridBagConstraints.LAST_LINE_START);
+        setMyConstraints(gridBagConstraints,3,2,25,25,GridBagConstraints.LAST_LINE_END);
         scores.setPreferredSize(new Dimension(100, 25));
         scores.setFont(new Font("Arial", Font.BOLD, 20));
         scores.setForeground(Color.WHITE);
         scores.setFocusPainted(false);
         scores.setHorizontalTextPosition(JButton.CENTER);
         scores.setVerticalTextPosition(JButton.CENTER);
-        scores.setIcon(scoresIcon);
-        add(scores,c);
+        scores.setIcon(scoresButtonBg);
+        add(scores, gridBagConstraints);
         scores.addActionListener(e -> owner.enableLeaderboard());
-
     }
 
     /**
