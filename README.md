@@ -1,5 +1,8 @@
 # COMP2042_CW_hcyhm1 - Brick Breaker Game
 This report provides a summary on the major refactoring activities, additions and documentations made to the [given](https://github.com/FilippoRanza/Brick_Destroy) codes for the Software Maintenance (COMP2042) Coursework 2021.
+
+**GitHub Link:** https://github.com/harinimani/COMP2042_CW_hcyhm1.git
+
 # About the Game
 This is a simple arcade video game. Player's goal is to destroy a wall with a small ball. The game has very simple commands: 
 
@@ -15,9 +18,9 @@ This is a simple arcade video game. Player's goal is to destroy a wall with a sm
 The game automatically pause if the frame loses focus.
 # Gradle Run
 
-Pre-requisite : Java 8 to Java 15
+**Pre-requisite :** Java 8 to Java 15
 
-Note: Gradle is not compatible with Java versions after Java 15.
+**Note:** Gradle is not compatible with Java versions after Java 15.
 
 A build file is added as it automatically downloads and configures the dependencies and other libraries used. Gradle Wrapper allows us to run the build file without installing Gradle. When we invoke "gradlew", it downloads and builds the Gradle version specified. In order to run the application from the command line, the following steps can be followed:
 
