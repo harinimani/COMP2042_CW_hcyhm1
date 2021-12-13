@@ -149,7 +149,6 @@ abstract public class BrickController {
      */
     public void repair() {
         broken = false;
-        //strength = fullStrength;
         setStrength(fullStrength);
     }
 

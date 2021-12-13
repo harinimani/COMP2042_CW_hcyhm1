@@ -177,7 +177,7 @@ public class HomeMenuView extends JPanel implements ActionListener {
     }
 
     /**
-     * paintComponent method paints/draws all the components
+     * paintComponent method paints/draws all the components.
      * @param g
      */
     @Override

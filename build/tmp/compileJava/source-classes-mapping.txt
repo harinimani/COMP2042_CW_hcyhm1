@@ -9,8 +9,8 @@ model/BonusBrickModel.java
 controller/GameTimeController.java
  controller.GameTimeController
  controller.GameTimeController$1
-controller/CrackController.java
- controller.CrackController
+view/GameBoardView.java
+ view.GameBoardView
 view/ScoresTableView.java
  view.ScoresTableView
 game/GraphicsMain.java
@@ -36,20 +36,20 @@ controller/WallController.java
  controller.WallController
 controller/DebugPanelController.java
  controller.DebugPanelController
-view/GameBoardView.java
- view.GameBoardView
+view/HomeMenuView.java
+ view.HomeMenuView
+ view.HomeMenuView$1
 model/CementBrickModel.java
  model.CementBrickModel
 controller/BrickController.java
  controller.BrickController
 model/SteelBrickModel.java
  model.SteelBrickModel
-view/LeaderboardView.java
- view.LeaderboardView
+controller/CrackController.java
+ controller.CrackController
 model/ClayBrickModel.java
  model.ClayBrickModel
-view/HomeMenuView.java
- view.HomeMenuView
- view.HomeMenuView$1
 controller/GameFrameController.java
  controller.GameFrameController
+view/LeaderboardView.java
+ view.LeaderboardView
