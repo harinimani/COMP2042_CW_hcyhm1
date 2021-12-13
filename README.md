@@ -82,7 +82,7 @@ The Controller acts on both the model and view. Controllers inform the model wha
  
 **5. Scores and Leaderboard**
  
- A ScoreController, ScoreTableView and LeaderBoardView classes were added in to store and display the top 5 scores in a JTable format. Displays the player name, total number of bricks broken, minutes taken and seconds taken.
+ A ScoreController, ScoreTableView and LeaderBoardView classes were added in to store and display the top 5 scores in a JTable format. Displays the player name, total number of bricks broken, minutes taken and seconds taken. Also have a pop-up JOptionPane to notify and request user to enter name to store into leaderboard.
 
 **6. Additional Levels** 
  
