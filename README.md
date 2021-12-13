@@ -56,26 +56,26 @@ The Controller acts on both the model and view. Controllers inform the model wha
  Renamed methods and variables based on the Oracle Java Variable and Method Naming Convention Documentation. Significant changes made in Player class.
  
 **7. JUnit** 
-JUnit test classes added to the WallController,PlayerModel, BonusBrickModel, ClayBrickModel, CementBrickModel, SteelBrickModel, TimesaverBrickModel, LevelsModel.
+ JUnit test classes added to the WallController,PlayerModel, BonusBrickModel, ClayBrickModel, CementBrickModel, SteelBrickModel, TimesaverBrickModel, LevelsModel.
  
  
 # Major Additions
 **1. Adding Background Images** 
-Added a Background image for the HomeMenu, Leaderboard, Instruction views, as well as the buttons.
+ Added a Background image for the HomeMenu, Leaderboard, Instruction views, as well as the buttons.
  
 **2. HomeMenuView**  
-Significant additons made to HomeMenuView. Converted it to a JFrame and added in the Info and Scores buttons as well. 
+ Significant additons made to HomeMenuView. Converted it to a JFrame and added in the Info and Scores buttons as well. 
  
 **3. Instructions View**  
-Added in an Instructions View to display the "How To Play" info to the users. 
+ Added in an Instructions View to display the "How To Play" info to the users. 
 
 **4. Game Timer** 
-Added an in-game timer to keep track of the total time taken the player has taken to complete the game. Used in calculating the scores as well. 
+ Added an in-game timer to keep track of the total time taken the player has taken to complete the game. Used in calculating the scores as well. 
  
 **5. Scores and Leaderboard** 
-A ScoreController, ScoreTableView and LeaderBoardView classes were added in to store and display the top 5 scores in a JTable format. Displays the player name, total number of bricks broken, minutes taken and seconds taken.
+ A ScoreController, ScoreTableView and LeaderBoardView classes were added in to store and display the top 5 scores in a JTable format. Displays the player name, total number of bricks broken, minutes taken and seconds taken.
 
 **6. Additional Levels** 
-Three additional levels were added in. Introduce three new bricks, Bonus, TimeSaver and Slow bricks. Bonus brick increases total bricks broken by 4 on impact. TimeSaver brick deducts 5 seconds from the player's time taken. Slow brick slows the in-game player's movement for 5 seconds.
+ Three additional levels were added in. Introduce three new bricks, Bonus, TimeSaver and Slow bricks. Bonus brick increases total bricks broken by 4 on impact. TimeSaver brick deducts 5 seconds from the player's time taken. Slow brick slows the in-game player's movement for 5 seconds.
  
  
