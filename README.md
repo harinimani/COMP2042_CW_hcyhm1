@@ -62,6 +62,10 @@ The Controller acts on both the model and view. Controllers inform the model wha
  
  JUnit test classes added to the WallController,PlayerModel, BonusBrickModel, ClayBrickModel, CementBrickModel, SteelBrickModel, TimesaverBrickModel, LevelsModel.
  
+**8. Javadocs** 
+ 
+Added in Javadocs for all the classes and methods in accordance to the Oracle Java Javadocs Documentation. 
+ 
  
 # Major Additions
 **1. Adding Background Images** 
