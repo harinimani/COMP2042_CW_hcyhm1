@@ -36,9 +36,8 @@ controller/WallController.java
  controller.WallController
 controller/DebugPanelController.java
  controller.DebugPanelController
-view/HomeMenuView.java
- view.HomeMenuView
- view.HomeMenuView$1
+model/ClayBrickModel.java
+ model.ClayBrickModel
 model/CementBrickModel.java
  model.CementBrickModel
 controller/BrickController.java
@@ -47,8 +46,9 @@ model/SteelBrickModel.java
  model.SteelBrickModel
 controller/CrackController.java
  controller.CrackController
-model/ClayBrickModel.java
- model.ClayBrickModel
+view/HomeMenuView.java
+ view.HomeMenuView
+ view.HomeMenuView$1
 controller/GameFrameController.java
  controller.GameFrameController
 view/LeaderboardView.java
