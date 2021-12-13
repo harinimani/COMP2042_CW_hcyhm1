@@ -1,6 +1,6 @@
 Name,Bricks,Min,Sec
 sam,14,1,18
+har,9,1,37
 eve,8,0,37
 mal,7,1,26
 belle,3,0,31
-lala,1,0,20
